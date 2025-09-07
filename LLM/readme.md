@@ -68,7 +68,92 @@ Imagine:
 ## ✅ One-line definition
 
 **An LLM is a very large neural network trained on massive text data to predict and generate human-like language.**
+---
+There are three main types of Large Language Model (LLM) architectures, based on how they process and generate text: **Encoder**, **Decoder**, and **Encoder-Decoder**. Each has a distinct role and is suitable for different types of language tasks. Here’s a clear explanation of each:
 
+---
+
+## 1. Encoder-Only Models
+
+- **What they do:**  
+  Focus on understanding and representing input text.
+- **How they work:**  
+  Take some text and convert it into a meaningful representation (vector/embedding) that captures its meaning and context.
+- **Strengths:**  
+  Great at comprehension tasks, such as:
+  - Classification (e.g., spam detection)
+  - Named Entity Recognition (NER)
+  - Sentiment analysis
+  - Text similarity
+- **Limitation:**  
+  Not typically used for generating long sequences of text.
+- **Famous Example:**  
+  - **BERT** (Bidirectional Encoder Representations from Transformers)
+- **Analogy:**  
+  Like a reader who understands and summarizes text, but doesn’t write new stories.
+<img width="564" height="296" alt="image" src="https://github.com/user-attachments/assets/2fa2578d-505d-4a4e-9a2f-65460ab793f8" />
+
+---
+
+## 2. Decoder-Only Models
+
+- **What they do:**  
+  Generate new text, one token at a time, based on previous context.
+- **How they work:**  
+  Given a prompt, they predict the next word, then the next, and so on—producing coherent output.
+- **Strengths:**  
+  Excellent for generative tasks, such as:
+  - Text completion
+  - Story or code generation
+  - Chatbots and dialogue systems
+- **Limitation:**  
+  Not bidirectional; can’t look at the whole input at once (only the left/context side).
+- **Famous Examples:**  
+  - **GPT** (Generative Pre-trained Transformer: GPT-2, GPT-3, GPT-4, etc.)
+- **Analogy:**  
+  Like an author who writes stories, predicting each word as they go.
+<img width="932" height="232" alt="image" src="https://github.com/user-attachments/assets/ec277ad5-0d20-4aba-926d-48be3cdb595f" />
+
+---
+
+## 3. Encoder-Decoder Models (Seq2Seq)
+
+- **What they do:**  
+  Encode the input into a representation, then decode it to generate output—transforming one sequence into another.
+- **How they work:**  
+  The encoder reads the input and summarizes it; the decoder then takes this summary and generates the desired output.
+- **Strengths:**  
+  Perfect for sequence transformation tasks, such as:
+  - Machine translation (e.g., English → French)
+  - Summarization
+  - Paraphrasing
+  - Question answering
+- **Famous Examples:**  
+  - **T5** (Text-to-Text Transfer Transformer)
+  - **BART** (Bidirectional and Auto-Regressive Transformer)
+- **Analogy:**  
+  Like a translator: listens to a sentence in one language, understands it, and then says it in another language.
+
+<img width="759" height="316" alt="image" src="https://github.com/user-attachments/assets/e7510297-f867-48c9-b0bc-8f918eed7081" />
+<img width="1160" height="470" alt="image" src="https://github.com/user-attachments/assets/346ffd3f-9ff8-420d-be32-7d4a59939d28" />
+
+Text to Text Transformer from HuggingFace
+---
+
+### Summary Table
+
+| Type              | Example(s)   | Typical Tasks                      | Directionality      |
+|-------------------|--------------|------------------------------------|---------------------|
+| Encoder           | BERT         | Understanding, classification      | Bidirectional       |
+| Decoder           | GPT series   | Text generation, completion        | Left-to-right       |
+| Encoder-Decoder   | T5, BART     | Translation, summarization, Q&A    | Both (seq2seq)      |
+
+---
+
+**In short:**  
+- **Encoders** = Understand input.  
+- **Decoders** = Generate output.  
+- **Encoder-Decoders** = Transform input into output (translation, summarization, etc.).
 ---
 
 Let’s dive into the **architecture of LLMs** in a way that’s beginner-friendly 🌟
@@ -170,6 +255,10 @@ Think of it like a **classroom**:
 * **Instruction Tuning** = makes it *usable*.
 * **RLHF** = makes it *safe & aligned*.
 * **Fine-tuning** = makes it *domain-specialized*.
+
+
+<img width="1345" height="556" alt="image" src="https://github.com/user-attachments/assets/dd43ab93-6329-4358-8d7d-0a754cf82443" />
+
 
 <img width="1490" height="980" alt="image" src="https://github.com/user-attachments/assets/7ac11b0c-2cc1-4e22-bcbd-f4efa7447761" />
 
