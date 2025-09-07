@@ -151,6 +151,7 @@ Think of it like a **classroom**:
 ---
 
 
+<img width="890" height="967" alt="image" src="https://github.com/user-attachments/assets/97009cb8-646b-421c-95c9-d300152259cb" />
 
 
 
@@ -169,6 +170,8 @@ Think of it like a **classroom**:
 * **Instruction Tuning** = makes it *usable*.
 * **RLHF** = makes it *safe & aligned*.
 * **Fine-tuning** = makes it *domain-specialized*.
+
+<img width="1490" height="980" alt="image" src="https://github.com/user-attachments/assets/7ac11b0c-2cc1-4e22-bcbd-f4efa7447761" />
 
 ---
 
