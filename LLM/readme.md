@@ -1787,6 +1787,33 @@ d) Cohere embed-english**
 **✅ Answer: b) Command-R-Plus**  
 **Explanation**: **Command-R-Plus** supports up to **128k tokens**, making it suitable for long-context tasks like summarization and document analysis.
 
+Here are the **maximum token limits** for each of the listed models in **OCI Generative AI**:
+
+---
+
+### **a) Command-R (16k)**  
+**✅ Max Token Limit: 16,000 tokens**  
+**Explanation**: This model supports a total prompt + response length of **16,000 tokens** per run. It’s optimized for conversational tasks and long-context interactions.[1](https://docs.oracle.com/en-us/iaas/Content/generative-ai/cohere-command-r-16k.htm)
+
+---
+
+### **b) Command-R-Plus**  
+**✅ Max Token Limit: 128,000 tokens**  
+**Explanation**: Command-R-Plus supports a **context length of up to 128k tokens**, making it ideal for long documents, multi-turn conversations, and complex reasoning tasks.[2](https://stackoverflow.com/questions/78494027/max-token-limit-for-cohere-command-r-model)
+
+---
+
+### **c) Llama 3.1 (70B)**  
+**✅ Max Token Limit: Typically 8,192 to 32,000 tokens**  
+**Explanation**: While exact limits may vary by deployment, **Meta’s Llama 3.1 (70B)** models generally support **8k to 32k tokens** depending on configuration. OCI may offer extended context versions, but 8k is a safe default unless otherwise specified.[3](https://docs.oracle.com/en-us/iaas/Content/generative-ai/chat-models.htm)
+
+---
+
+### **d) Cohere embed-english**  
+**✅ Max Token Limit: 512 tokens per input**  
+**Explanation**: Embedding models like **Cohere embed-english** are designed for converting text into vector representations. They support up to **512 tokens per input**, with batch limits (e.g., 96 inputs per run).[3](https://docs.oracle.com/en-us/iaas/Content/generative-ai/chat-models.htm)
+
+---
 ---
 
 ### **Q2. What is the main use case for embedding models?  
@@ -1808,6 +1835,82 @@ d) Zero-shot prompting**
 
 **✅ Answer: c) LoRA**  
 **Explanation**: **LoRA (Low-Rank Adaptation)** introduces a small number of trainable parameters (~0.01%) while keeping the original model weights frozen, making it efficient and modular.
+Here’s a clear explanation of the three fine-tuning methods you asked about:
+
+---
+
+## **a) Vanilla Fine-Tuning**
+
+### ✅ **What It Is**  
+Vanilla fine-tuning refers to the **standard method** of retraining a pre-trained LLM by updating **all of its parameters** using new, task-specific data.
+
+### 🔧 **How It Works**
+- The entire model is retrained on a new dataset.
+- Requires significant compute resources (GPU memory, time).
+- Offers high flexibility and performance for domain adaptation.
+
+### ⚠️ **Pros & Cons**
+- **Pros**: High accuracy, full control over model behavior.
+- **Cons**: Expensive, slow, and not modular—each fine-tuned version is a full copy of the model.
+
+---
+
+## **b) T-Few (Task-Specific Few-Shot Fine-Tuning)**
+
+### ✅ **What It Is**  
+T-Few is a **parameter-efficient fine-tuning** method that adapts models using **few-shot examples** and minimal updates.
+
+### 🔧 **How It Works**
+- Uses a small number of labeled examples.
+- Fine-tunes only a subset of the model (e.g., adapters or specific layers).
+- Designed for **task-specific adaptation** with minimal data.
+
+### ⚠️ **Pros & Cons**
+- **Pros**: Efficient, fast, good for low-resource scenarios.
+- **Cons**: May not generalize well to broader tasks.
+
+---
+
+## **c) LoRA (Low-Rank Adaptation)**
+
+### ✅ **What It Is**  
+LoRA is a technique that adds **low-rank trainable matrices** to the model, allowing fine-tuning without modifying the original weights.
+
+### 🔧 **How It Works**
+- Original model weights are **frozen**.
+- LoRA layers are inserted into attention or feed-forward layers.
+- Only LoRA parameters are trained (~0.01% of total weights).
+
+### ⚠️ **Pros & Cons**
+- **Pros**: Highly efficient, modular, easy to deploy and share.
+- **Cons**: Slightly less flexible than full fine-tuning for complex tasks.
+
+---
+Here’s a clear comparison between **T-Few** and **LoRA**, two popular **parameter-efficient fine-tuning** methods used in large language models (LLMs):
+
+---
+
+## 🔍 **T-Few vs. LoRA: Key Differences**
+
+| Feature | **T-Few (Task-Specific Few-Shot Fine-Tuning)** | **LoRA (Low-Rank Adaptation)** |
+|--------|-----------------------------------------------|-------------------------------|
+| **Purpose** | Adapts models using few-shot examples for specific tasks | Efficiently fine-tunes models by adding low-rank matrices |
+| **Training Scope** | Updates a small subset of parameters | Adds new trainable parameters; original weights are frozen |
+| **Efficiency** | Very efficient for small datasets and quick adaptation | Highly efficient for large models with minimal compute |
+| **Data Requirement** | Few-shot examples (small labeled dataset) | Can work with larger datasets but still efficient |
+| **Model Modification** | Slight updates to existing layers | Inserts additional layers (low-rank adapters) |
+| **Use Case** | Task-specific tuning (e.g., classification, QA) | Broad fine-tuning across domains or tasks |
+| **Parameter Update Ratio** | Minimal (few layers or adapters) | ~0.01% of total parameters updated |
+| **Deployment** | Lightweight, fast to deploy | Modular—LoRA layers can be added/removed easily |
+
+---
+
+## 🧠 **Summary**
+
+- **T-Few** is ideal when you have **limited labeled data** and need to adapt a model quickly for a **specific task**.
+- **LoRA** is better when you want to fine-tune **large models** efficiently without retraining the entire network, and you want to **preserve the original model**.
+
+---
 
 ---
 
@@ -1841,6 +1944,82 @@ d) ROUGE**
 
 **✅ Answer: d) ROUGE**  
 **Explanation**: **ROUGE** measures the overlap between generated and reference text, making it ideal for evaluating **summarization and generative tasks**.
+
+Here’s a clear explanation of the four evaluation metrics commonly used in machine learning and generative AI:
+
+---
+
+## 🔹 **a) Accuracy**
+
+### ✅ What It Is:
+Accuracy measures the **percentage of correct predictions** made by a model out of all predictions.
+
+### 📊 Formula:
+$$
+\text{Accuracy} = \frac{\text{Correct Predictions}}{\text{Total Predictions}}
+$$
+
+### 📌 Use Case:
+- Best for **classification tasks** where classes are balanced.
+- Not ideal when dealing with **imbalanced datasets** (e.g., 95% of one class).
+
+---
+
+## 🔹 **b) Loss**
+
+### ✅ What It Is:
+Loss is a **numerical value** that represents how far off the model's predictions are from the actual values. It’s used during training to guide model updates.
+
+### 📊 Common Loss Functions:
+- **Cross-Entropy Loss** (for classification)
+- **Mean Squared Error (MSE)** (for regression)
+
+### 📌 Use Case:
+- Used to **optimize model performance** during training.
+- Lower loss = better model fit.
+
+---
+
+## 🔹 **c) BLEU (Bilingual Evaluation Understudy)**
+
+### ✅ What It Is:
+BLEU is a metric for evaluating **machine translation** and **text generation** by comparing n-gram overlaps between the generated text and reference text.
+
+### 📊 How It Works:
+- Measures precision of n-grams (e.g., 1-gram, 2-gram).
+- Scores range from 0 to 1 (or 0 to 100 in some tools).
+
+### 📌 Use Case:
+- Common in **translation tasks**.
+- Works well when exact word matching is important.
+
+---
+
+## 🔹 **d) ROUGE (Recall-Oriented Understudy for Gisting Evaluation)**
+
+### ✅ What It Is:
+ROUGE evaluates **text summarization** and **generation** by measuring the **recall** of overlapping units (n-grams, sequences, etc.) between generated and reference texts.
+
+### 📊 Variants:
+- **ROUGE-N**: Overlap of n-grams
+- **ROUGE-L**: Longest common subsequence
+- **ROUGE-S**: Skip-bigram
+
+### 📌 Use Case:
+- Ideal for **summarization** and **open-ended generation**.
+- Focuses on how much of the reference content is captured.
+
+---
+
+## 🧠 Summary Table
+
+| Metric | Best For | Measures | Notes |
+|--------|----------|----------|-------|
+| **Accuracy** | Classification | Correct predictions | Simple but limited for imbalanced data |
+| **Loss** | Training optimization | Prediction error | Guides model updates |
+| **BLEU** | Translation | N-gram precision | Sensitive to exact wording |
+| **ROUGE** | Summarization | N-gram recall | Captures content overlap |
+
 
 ---
 
@@ -1877,6 +2056,38 @@ d) 96 hours**
 
 ---
 
+## 🧮 **Breakdown of 744 Hours**
+
+- There are **31 days** in many months.
+- Each day has **24 hours**.
+  
+So:
+
+$$
+31 \text{ days} \times 24 \text{ hours/day} = 744 \text{ hours/month}
+$$
+
+---
+
+## 🧠 **Why This Matters in OCI Hosting**
+
+When you deploy a model for **inference (hosting)** in **OCI Generative AI**, it's expected to be **available at all times**—ready to respond to user queries, API calls, or chatbot interactions.
+
+- This is called **“always-on” hosting**.
+- OCI bills hosting clusters based on this **full-time availability**, hence the **744-hour minimum commitment**.
+
+---
+
+## ✅ **Summary**
+
+| Hosting Mode | Hours/Month | Description |
+|--------------|-------------|-------------|
+| **24×7 Hosting** | **744 hours** | Model is continuously available for production use |
+| **Fine-Tuning** | Flexible (e.g., 12 hours) | Short-term GPU usage for training |
+
+
+---
+
 ### **Q10. You are deploying a fine-tuned Llama model on OCI and need to ensure that your model weights are encrypted and only accessible within your tenancy. Which service should you configure to manage and control the encryption keys?  
 a) OCI IAM  
 b) OCI Object Storage  
@@ -1887,4 +2098,120 @@ d) OCI Data Guard**
 **Explanation**: **OCI Key Management** allows you to manage encryption keys securely, ensuring that **model weights stored in Object Storage** are encrypted and tenancy-restricted.
 
 ---
+
+
+## **Practice Questions: LangChain, RAG, and Oracle 23ai**
+
+---
+
+### **Q1. Which LangChain component is used to preserve past conversation for context?  
+a) Prompt Template  
+b) Memory  
+c) Chain  
+d) Vector Store**
+
+**✅ Answer: b) Memory**  
+**Explanation**: In LangChain, **Memory** is used to store previous interactions so the model can generate context-aware responses in multi-turn conversations.
+
+---
+
+### **Q2. In LangChain, which template is designed for conversational inputs?  
+a) Prompt Template  
+b) ChainTemplate  
+c) ChatPromptTemplate  
+d) DialogueTemplate**
+
+**✅ Answer: c) ChatPromptTemplate**  
+**Explanation**: **ChatPromptTemplate** is specifically designed for multi-turn conversations, allowing structured messages with roles like system, human, and AI.
+
+---
+
+### **Q3. Which Oracle feature allows you to query databases using natural language?  
+a) Oracle Cloud Guard  
+b) Oracle Data Guard  
+c) Oracle SELECT AI  
+d) Oracle AutoML**
+
+**✅ Answer: c) Oracle SELECT AI**  
+**Explanation**: **Oracle SELECT AI** enables users to write **natural language queries** that are automatically converted into SQL using OCI Generative AI.
+
+---
+
+### **Q4. Which similarity metric considers both magnitude and angle between embeddings?  
+a) Cosine Similarity  
+b) Dot Product  
+c) Euclidean Distance  
+d) Jaccard Index**
+
+**✅ Answer: b) Dot Product**  
+**Explanation**: **Dot product** takes into account both the **magnitude and angle** between vectors, making it useful for certain types of similarity search.
+
+---
+
+### **Q5. Why is chunk overlap used in text splitting?  
+a) To reduce cost  
+b) To maintain semantic continuity  
+c) To increase retrieval speed  
+d) To avoid indexing**
+
+**✅ Answer: b) To maintain semantic continuity**  
+**Explanation**: **Chunk overlap** ensures that important context isn’t lost between chunks, improving the quality of retrieval and generation in RAG pipelines.
+
+---
+
+### **Q6. What type of index is HNSW?  
+a) Partition-based index  
+b) Graph-based neighbor index  
+c) Flat index  
+d) Semantic index**
+
+**✅ Answer: b) Graph-based neighbor index**  
+**Explanation**: **HNSW (Hierarchical Navigable Small World)** is a **graph-based index** that enables fast approximate nearest-neighbor search with high recall.
+
+---
+
+### **Q7. In RAG, what is the role of embeddings?  
+a) Tokenize text into smaller parts  
+b) Convert text into numerical vectors for semantic similarity  
+c) Generate SQL queries  
+d) Reduce context window length**
+
+**✅ Answer: b) Convert text into numerical vectors for semantic similarity**  
+**Explanation**: Embeddings transform text into **vector representations**, which are used to find semantically similar content during retrieval.
+
+---
+
+### **Q8. Which LangChain class is used for chaining retrieval + LLM together?  
+a) ChatPromptTemplate  
+b) RetrievalQA  
+c) MemoryChain  
+d) OracleVS**
+
+**✅ Answer: b) RetrievalQA**  
+**Explanation**: **RetrievalQA** combines a retriever (e.g., vector store) with an LLM to answer questions based on retrieved context.
+
+---
+
+### **Q9. What is a key benefit of RAG compared to training larger LLMs?  
+a) Reduces context window size  
+b) Eliminates need for embeddings  
+c) Provides up-to-date, domain-specific answers without retraining  
+d) Increases training dataset size**
+
+**✅ Answer: c) Provides up-to-date, domain-specific answers without retraining**  
+**Explanation**: **RAG** retrieves external data at runtime, allowing LLMs to generate **grounded, current responses** without needing to retrain the model.
+
+---
+
+### **Q10. Which Oracle 23ai datatype is used for storing embeddings?  
+a) BLOB  
+b) JSON  
+c) VECTOR  
+d) VARCHAR**
+
+**✅ Answer: c) VECTOR**  
+**Explanation**: Oracle 23ai uses the **VECTOR** datatype to store embeddings, enabling fast similarity search and retrieval in AI-powered applications.
+
+---
+
 
