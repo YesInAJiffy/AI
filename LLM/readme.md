@@ -1595,6 +1595,37 @@ d) Number of GPUs used**
 **✅ Answer: c) Number of parameters**  
 **Explanation**: The term "large" in LLM refers to the **number of parameters** in the model. These parameters define the model's capacity to learn and represent complex patterns in data.
 
+In the context of **Large Language Models (LLMs)**, **parameters** refer to the internal variables that the model learns during training. These parameters are the core components that enable the model to understand and generate human-like text.
+
+---
+
+### 🔍 **What Are Parameters in an LLM?**
+
+- **Definition**: Parameters are numerical values (typically weights and biases) in the neural network that determine how input data is transformed into output.
+- **Function**: They control how the model processes language—how it understands context, syntax, semantics, and generates coherent responses.
+- **Scale**: LLMs like GPT-3 or GPT-4 have **billions** (or even **trillions**) of parameters. For example:
+  - GPT-3: ~175 billion parameters
+  - GPT-4: Estimated to be even larger (exact number not publicly confirmed)
+
+---
+
+### 🧠 **Why Parameters Matter**
+
+- **More parameters = more capacity** to learn complex patterns in language.
+- They allow the model to:
+  - Understand nuanced meanings
+  - Maintain context across long conversations
+  - Generate diverse and accurate responses
+
+---
+
+### 📊 **Analogy**
+
+Think of parameters like the **settings on a massive control panel**. During training, the model adjusts these settings to best predict the next word or sentence based on the input it receives. The more settings (parameters) it has, the more finely it can tune its understanding.
+
+---
+
+
 ---
 
 ### **Q2. Which architecture is best suited for semantic search?  
@@ -1661,6 +1692,52 @@ d) Continual Pretraining**
 **✅ Answer: b) LoRA**  
 **Explanation**: **LoRA (Low-Rank Adaptation)** introduces new trainable parameters while keeping the original model weights frozen, making it efficient and modular.
 
+**LoRA (Low-Rank Adaptation)** is a technique used to fine-tune large language models (LLMs) efficiently by introducing a small number of trainable parameters, while keeping the original model weights frozen. It’s especially useful when working with very large models where full fine-tuning would be computationally expensive.
+
+---
+
+## 🔍 **What Is LoRA?**
+
+**Low-Rank Adaptation (LoRA)** modifies the model by inserting small, trainable layers into the existing architecture. These layers learn task-specific adjustments without altering the original model weights.
+
+---
+
+## ⚙️ **How LoRA Works**
+
+- Instead of updating all the weights in a large model, LoRA:
+  - Adds **low-rank matrices** to certain layers (usually attention layers).
+  - Only trains these new matrices.
+  - Keeps the original model **frozen** (unchanged).
+- During inference, the outputs from the original weights and the LoRA layers are **combined** to produce the final result.
+
+---
+
+## 📈 **Benefits of LoRA**
+
+| Feature | Benefit |
+|--------|---------|
+| **Efficiency** | Requires far fewer GPU resources |
+| **Modularity** | LoRA layers can be added/removed easily |
+| **Cost-effective** | Reduces training time and cost |
+| **Scalability** | Enables fine-tuning of very large models on modest hardware |
+
+---
+
+## 🧠 **Why “Low-Rank”?**
+
+- In linear algebra, a **low-rank matrix** is one that can be approximated using fewer dimensions.
+- LoRA leverages this idea to represent changes in model behavior using **compact, efficient representations**.
+
+---
+
+## 📌 **Use Cases**
+
+- Domain adaptation (e.g., legal, medical, financial texts)
+- Task-specific tuning (e.g., summarization, classification)
+- Multi-lingual or multi-modal extensions
+
+---
+
 ---
 
 ### **Q8. What does temperature control in decoding?  
@@ -1694,4 +1771,120 @@ d) Lower memory usage**
 **✅ Answer: b) Prompt Injection**  
 **Explanation**: **Prompt injection** is a security risk where malicious inputs manipulate the model’s behavior, potentially leading to unintended or harmful outputs.
 
+
+---
+
+## **Practice Questions: OCI Generative AI**
+
+---
+
+### **Q1. Which OCI chat model allows up to 128k tokens per input?  
+a) Command-R (16k)  
+b) Command-R-Plus  
+c) Llama 3.1 (70B)  
+d) Cohere embed-english**
+
+**✅ Answer: b) Command-R-Plus**  
+**Explanation**: **Command-R-Plus** supports up to **128k tokens**, making it suitable for long-context tasks like summarization and document analysis.
+
+---
+
+### **Q2. What is the main use case for embedding models?  
+a) Conversational chat  
+b) Text-to-image  
+c) Semantic search  
+d) Translation only**
+
+**✅ Answer: c) Semantic search**  
+**Explanation**: Embedding models convert text into vector representations, which are primarily used for **semantic search**, clustering, and retrieval tasks.
+
+---
+
+### **Q3. Which fine-tuning method updates only ~0.01% of weights?  
+a) Vanilla fine-tuning  
+b) T-Few  
+c) LoRA  
+d) Zero-shot prompting**
+
+**✅ Answer: c) LoRA**  
+**Explanation**: **LoRA (Low-Rank Adaptation)** introduces a small number of trainable parameters (~0.01%) while keeping the original model weights frozen, making it efficient and modular.
+
+---
+
+### **Q4. Which parameter controls the randomness of the output?  
+a) Frequency penalty  
+b) Temperature  
+c) Top-k  
+d) Context length**
+
+**✅ Answer: b) Temperature**  
+**Explanation**: **Temperature** controls the randomness in token selection during generation. Lower values produce more deterministic outputs; higher values increase diversity.
+
+---
+
+### **Q5. What is a major advantage of RAG?  
+a) Eliminates the cost of GPUs  
+b) Provides grounded answers with enterprise data  
+c) Removes the need for tokenization  
+d) Always reduces latency**
+
+**✅ Answer: b) Provides grounded answers with enterprise data**  
+**Explanation**: **Retrieval-Augmented Generation (RAG)** enhances LLMs by retrieving relevant external data, ensuring responses are **grounded and accurate**.
+
+---
+
+### **Q6. Which evaluation metric is better for generative AI?  
+a) Accuracy  
+b) Loss  
+c) BLEU  
+d) ROUGE**
+
+**✅ Answer: d) ROUGE**  
+**Explanation**: **ROUGE** measures the overlap between generated and reference text, making it ideal for evaluating **summarization and generative tasks**.
+
+---
+
+### **Q7. Which cluster type is used for Llama models?  
+a) Large Cohere Dedicated  
+b) Small Cohere Dedicated  
+c) Large Meta Dedicated  
+d) Embedding Cohere Dedicated**
+
+**✅ Answer: c) Large Meta Dedicated**  
+**Explanation**: **Llama models** are developed by Meta, and they are hosted on **Large Meta Dedicated clusters** in OCI for optimal performance.
+
+---
+
+### **Q8. Which parameter reduces repeated phrases based on count?  
+a) Temperature  
+b) Top-p  
+c) Frequency penalty  
+d) Presence penalty**
+
+**✅ Answer: c) Frequency penalty**  
+**Explanation**: **Frequency penalty** reduces the likelihood of repeating tokens based on how often they’ve already appeared in the output.
+
+---
+
+### **Q9. What is the minimum hosting commitment for OCI clusters?  
+a) 1 hour  
+b) 10 hours  
+c) 744 hours  
+d) 96 hours**
+
+**✅ Answer: c) 744 hours**  
+**Explanation**: OCI hosting clusters require a **minimum commitment of 744 hours/month**, equivalent to **24×7 availability**.
+
+---
+
+### **Q10. You are deploying a fine-tuned Llama model on OCI and need to ensure that your model weights are encrypted and only accessible within your tenancy. Which service should you configure to manage and control the encryption keys?  
+a) OCI IAM  
+b) OCI Object Storage  
+c) OCI Key Management  
+d) OCI Data Guard**
+
+**✅ Answer: c) OCI Key Management**  
+**Explanation**: **OCI Key Management** allows you to manage encryption keys securely, ensuring that **model weights stored in Object Storage** are encrypted and tenancy-restricted.
+
+---
 
