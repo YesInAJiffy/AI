@@ -315,6 +315,29 @@ Think of it like a **classroom**:
 * ✅ **Parameters updated:** Yes — but often only a subset (to save cost
 
 
+# MUG UP QUESTIONS
+The correct answer is:  
+**C. 100 MB**
+
+---
+
+### Explanation:
+
+According to Oracle Cloud Infrastructure (OCI) documentation, the **maximum file size** for ingestion into an Object Storage bucket as a **Generative AI knowledge base** is:
+
+- **100 MB per file**  
+- Supported file types include **PDF, TXT, JSON, HTML, and Markdown (MD)**  
+- Files exceeding this limit are **ignored during ingestion**[1](https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/data-requirements.htm).
+
+---
+
+### Additional Notes:
+- You can ingest **up to 10,000 files** per data source.
+- Only **one Object Storage bucket** is allowed per data source.
+- If needed, you can **request a limit increase** through OCI support[2](https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/limits.htm).
+
+
+
 # Oracle AI Professional Certification
 
 https://www.linkedin.com/pulse/cheersheet-1z0-1127-25-oracle-cloud-infrastructure-2025-david-edwards-xdqde
