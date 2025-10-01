@@ -2553,4 +2553,943 @@ d) VARCHAR**
 
 ---
 
+Here’s a well-formatted version of your **OCI Generative AI Agents Practice Questions (MCQs)** with **answers and explanations**:
+
+---
+
+## **Practice Questions: OCI Generative AI Agents**
+
+---
+
+### **Q1. What is the role of the Knowledge Base in OCI Generative AI Agents?  
+a) Provides APIs for LLM  
+b) Organizes ingested data for retrieval  
+c) Stores only prompts  
+d) Manages system logs**
+
+**✅ Answer: b) Organizes ingested data for retrieval**  
+**Explanation**: The **Knowledge Base** is a vector storage system that organizes ingested data so it can be efficiently retrieved during inference.
+
+---
+
+### **Q2. Which feature ensures model responses are traceable to original data sources?  
+a) Trace  
+b) Persona  
+c) Groundedness  
+d) Content Moderation**
+
+**✅ Answer: c) Groundedness**  
+**Explanation**: **Groundedness** ensures that responses are based on actual data sources, often with citations, making them verifiable and trustworthy.
+
+---
+
+### **Q3. Which input helps maintain continuity in conversations?  
+a) Prompt  
+b) Tools  
+c) Memory  
+d) Citation**
+
+**✅ Answer: c) Memory**  
+**Explanation**: **Memory** stores previous interactions, allowing the agent to maintain context and continuity across multiple exchanges.
+
+---
+
+### **Q4. Which OCI service allows uploading PDF/TXT files for ingestion by Generative AI Agents?  
+a) OCI IAM  
+b) OCI Object Storage  
+c) OCI Vault  
+d) OCI Logging**
+
+**✅ Answer: b) OCI Object Storage**  
+**Explanation**: **OCI Object Storage** is used to upload and manage files like PDFs and TXTs, which can then be ingested into the Knowledge Base.
+
+---
+
+### **Q5. Hybrid search combines:  
+a) Semantic + Exact match search  
+b) Vector + Image search  
+c) RAG + Prompt engineering  
+d) SQL + Graph search**
+
+**✅ Answer: a) Semantic + Exact match search**  
+**Explanation**: **Hybrid search** blends **semantic (vector-based)** and **lexical (exact match)** techniques to improve retrieval accuracy.
+
+### 🔍 What Is **Hybrid Search**?
+
+**Hybrid search** is a technique that combines **semantic search** (meaning-based) and **lexical search** (exact keyword match) to improve the **accuracy and relevance** of information retrieval.
+
+---
+
+## 🧠 Why Hybrid Search Matters
+
+In many real-world applications—like chatbots, enterprise search, or Retrieval-Augmented Generation (RAG)—you want to retrieve documents that are:
+
+- **Semantically relevant** (similar in meaning)
+- **Lexically precise** (contain exact terms or phrases)
+
+Hybrid search ensures you get **both**.
+
+---
+
+## ⚙️ How Hybrid Search Works
+
+1. **Lexical Search**:
+   - Uses traditional keyword matching (e.g., SQL `LIKE`, inverted indexes).
+   - Fast and precise but may miss contextually relevant results.
+
+2. **Semantic Search**:
+   - Uses **embeddings** to find documents with similar meaning.
+   - Captures context but may miss exact matches.
+
+3. **Hybrid Search**:
+   - Combines both methods.
+   - Ranks results based on a **weighted score** from both lexical and semantic relevance.
+
+---
+
+## ✅ Use Cases
+
+- **Generative AI Agents** in Oracle 23ai
+- **Enterprise knowledge bases**
+- **Customer support bots**
+- **Legal and medical document retrieval**
+
+---
+
+## 📌 Example
+
+Imagine searching for:  
+**"How to fine-tune a language model using LoRA?"**
+
+- **Lexical search** finds documents with the exact phrase “fine-tune” or “LoRA”.
+- **Semantic search** finds documents that discuss model adaptation, even if they don’t use those exact words.
+- **Hybrid search** gives you the best of both—relevant and precise.
+
+---
+
+---
+
+### **Q6. Which component defines the connection details for data retrieval?  
+a) Knowledge Base  
+b) Data Store  
+c) Data Source  
+d) Embedding Model**
+
+**✅ Answer: c) Data Source**  
+**Explanation**: The **Data Source** contains the connection details needed to access the underlying **Data Store** (e.g., Object Storage, DB).
+
+---
+
+### **Q7. In Oracle DB guidelines, what must align between queries and stored vectors?  
+a) File formats  
+b) Table schemas  
+c) Embedding models  
+d) Indexing methods**
+
+**✅ Answer: c) Embedding models**  
+**Explanation**: The **embedding model** used for querying must match the one used to generate and store the vectors to ensure accurate similarity search.
+
+---
+
+### **Q8. What is the default session timeout for OCI Agents?  
+a) 300 seconds  
+b) 1 hour  
+c) 24 hours  
+d) 7 days**
+
+**✅ Answer: b) 1 hour**  
+**Explanation**: The default **session timeout** for OCI Generative AI Agents is **1 hour**, though it can be extended up to 7 days.
+### 🔍 **What Is the Timeout for OCI Generative AI Agents?**
+
+The **default session timeout** for OCI Generative AI Agents is:
+
+> **3600 seconds (1 hour)**  
+> This means if there is **no activity** between the user and the agent for **1 hour**, the session automatically ends, and the context is lost.[1](https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/Content/generative-ai-agents/get-endpoint.htm)[2](https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/limits.htm)
+
+---
+
+### ⏳ **Can It Be Extended?**
+
+Yes! You can configure the **idle timeout** to be as long as:
+
+> **7 days (604,800 seconds)**  
+> This allows the agent to retain context across longer periods of inactivity, which is useful for extended workflows or asynchronous interactions.[2](https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/limits.htm)
+
+---
+
+### ✅ **Summary**
+
+| Setting | Value |
+|--------|-------|
+| **Default Timeout** | 1 hour (3600 seconds) |
+| **Maximum Timeout** | 7 days |
+| **Effect** | Session ends after timeout → context is lost |
+
+---
+
+### **Q9. Which feature tracks the full conversation history for monitoring?  
+a) Trace  
+b) Session  
+c) Content Moderation  
+d) Endpoint**
+
+**✅ Answer: a) Trace**  
+**Explanation**: **Trace** logs the entire conversation history, which is useful for debugging, monitoring, and auditing agent interactions.
+
+---
+
+### **Q10. Which search method is used for meaning-based retrieval?  
+a) Lexical  
+b) Semantic  
+c) Hybrid  
+d) Full-text**
+
+**✅ Answer: b) Semantic**  
+**Explanation**: **Semantic search** uses embeddings to retrieve content based on meaning rather than exact keyword matches.
+
+---
+
+Here’s a well-formatted version of your **Domain 1: LLM Fundamentals Practice Questions**, with **answers and explanations** provided after each question:
+
+---
+
+## **Domain 1: LLM Fundamentals (Large Language Models)**
+
+---
+
+### **Q1. What best describes a Large Language Model (LLM)?  
+A. A neural network trained on massive amounts of text data to predict and generate language.  
+B. A rule-based program for understanding grammar and syntax.  
+C. A database that stores and retrieves large text documents.  
+D. A cloud service for translating languages in real-time.**
+
+**✅ Answer: A**  
+**Explanation**: An LLM is a **neural network** trained on vast text data to understand, predict, and generate human-like language.
+
+---
+
+### **Q2. Which statement correctly contrasts encoder vs. decoder model architectures?  
+A. Encoders generate long passages of text, whereas decoders produce only embeddings.  
+B. Encoders excel at transforming text into vector representations, while decoders excel at generating text from prompts.  
+C. Decoder models are used only for image data, encoders only for text data.  
+D. Decoders require labeled data to operate; encoders do not.**
+
+**✅ Answer: B**  
+**Explanation**: **Encoders** are used for tasks like classification and semantic search (embedding generation), while **decoders** are used for text generation.
+
+---
+
+### **Q3. You want an LLM to translate a sentence from English to French. Which prompt engineering approach provides the model the best guidance?  
+A. Zero-shot prompting – simply ask for the translation with no examples.  
+B. One-shot prompting – provide the English sentence once and ask for French.  
+C. Few-shot prompting – include a couple of example English–French translations in the prompt before asking for the new translation.  
+D. Chain-of-thought prompting – instruct the model to explain its reasoning step by step in French.**
+
+**✅ Answer: C**  
+**Explanation**: **Few-shot prompting** gives the model examples to learn from, improving accuracy for translation and other structured tasks.
+
+---
+
+### **Q4. What is a known limitation of large language models that RAG (Retrieval-Augmented Generation) aims to address?  
+A. LLMs often refuse to answer questions due to a lack of training data.  
+B. LLMs may produce outdated or incorrect facts (hallucinations) because their knowledge is limited to training data.  
+C. LLMs cannot handle more than a single question at a time.  
+D. LLMs are unable to generate any content without an external knowledge base.**
+
+**✅ Answer: B**  
+**Explanation**: **RAG** helps mitigate **hallucinations** by retrieving up-to-date, external data to ground the model’s responses.
+
+---
+
+### **Q5. During deployment, how can an LLM be vulnerable to prompt injection?  
+A. Users can craft inputs that trick the model into ignoring system instructions and producing disallowed output.  
+B. The model’s weights can be directly altered via certain prompts.  
+C. Prompt injection refers to overloading the model with too long a prompt.  
+D. It’s a method of improving model accuracy by injecting clarifying prompts.**
+
+**✅ Answer: A**  
+**Explanation**: **Prompt injection** is a security risk where malicious inputs override system instructions, leading to unintended or unsafe outputs.
+
+---
+
+### **Q6. Which of the following is an example of a code model (LLM specialized for code)?  
+A. A transformer model trained on GitHub code that can complete and generate functions in Python or Java.  
+B. An LLM fine-tuned on medical research papers for clinical Q&A.  
+C. A generative adversarial network (GAN) that produces source code.  
+D. A compiler that translates high-level code to machine code using AI.**
+
+**✅ Answer: A**  
+**Explanation**: Code models like **Codex** or **CodeLlama** are trained on programming data to generate and complete code.
+
+---
+
+### **Q7. What does a multi-modal LLM refer to?  
+A. An AI model that can handle more than one human language (multilingual model).  
+B. A model that processes and/or generates multiple types of data (e.g., text, images, audio).  
+C. Any LLM with over 100 billion parameters.  
+D. A model using multiple neural network architectures in parallel.**
+
+**✅ Answer: B**  
+**Explanation**: **Multi-modal LLMs** can handle **multiple data types**, such as text, images, audio, and video (e.g., GPT-4 with vision).
+
+---
+
+### **Q8. Which hyperparameter would you adjust to make an LLM’s output less random and more deterministic?  
+A. Increase the temperature.  
+B. Decrease the temperature.  
+C. Increase the max token limit.  
+D. Use a larger context window.**
+
+**✅ Answer: B**  
+**Explanation**: **Lowering the temperature** makes the model’s output more predictable and consistent.
+
+---
+
+### **Q9. Your LLM outputs are good, but sometimes too brief. Which parameter or method helps in getting longer, more detailed responses?  
+A. Increase the max_tokens (generation length limit) for the model’s output.  
+B. Lower the temperature to 0.0.  
+C. Use zero-shot prompting instead of few-shot.  
+D. Enable beam search with a beam size of 1.**
+
+**✅ Answer: A**  
+**Explanation**: Increasing **max_tokens** allows the model to generate **longer responses** before stopping.
+
+---
+
+### **Q10. Which training approach allows adapting a large pre-trained LLM to a new task by updating only a small number of additional weights?  
+A. Full fine-tuning – update all model parameters on the new task data.  
+B. Prompt engineering – no model parameters are updated at all.  
+C. Parameter-efficient tuning (e.g., LoRA) – introduce small trainable weight matrices or “adapters” instead of retraining the whole model.  
+D. Continual pretraining – train on large unlabeled data from scratch.**
+
+**✅ Answer: C**  
+**Explanation**: **LoRA** and similar methods allow efficient adaptation by updating only a **small subset of parameters**, saving compute and time.
+
+---
+# STUDY FROM HERE
+
+Here is the **reformatted version** of your questions with the **correct answer included after each full question and all options**:
+
+---
+
+### **1. Which is true about the OCI Generative AI service?**  
+A. It’s a fully managed, serverless service that provides access to large language models via a unified API.  
+B. It requires customers to bring their own GPU hardware.  
+C. It is only for computer vision tasks, not text generation.  
+D. It cannot be accessed through the OCI Console, only via API.  
+✅ **Correct Answer:** A. It’s a fully managed, serverless service that provides access to large language models via a unified API.
+
+---
+
+### **2. What does it mean that OCI GenAI provides “single API” access to multiple models?**  
+A. You must integrate separate APIs for each foundation model vendor.  
+B. The same unified endpoint and API format lets you switch between different underlying models with minimal code changes.  
+C. All users share one global API key for the service.  
+D. The API only supports one model at a time.  
+✅ **Correct Answer:** B. The same unified endpoint and API format lets you switch between different underlying models with minimal code changes.
+
+---
+
+### **3. Which foundation models are available out of the box in OCI’s Generative AI Service for text tasks?**  
+A. Models from Meta (Llama 2) and Cohere (Command family for chat; Embed for embeddings).  
+B. Only Oracle’s proprietary LLMs are trained in-house.  
+C. OpenAI’s GPT-4 and GPT-3 models.  
+D. Google’s PaLM model family.  
+✅ **Correct Answer:** A. Models from Meta (Llama 2) and Cohere (Command family for chat; Embed for embeddings).
+
+---
+
+### **4. What is the primary intended use of the embedding models in OCI GenAI?**  
+A. To generate conversational dialogue responses.  
+B. To convert text into vector representations for semantic search and similarity tasks.  
+C. To fine-tune on code datasets.  
+D. To translate documents between languages.  
+✅ **Correct Answer:** B. To convert text into vector representations for semantic search and similarity tasks.
+
+---
+
+### **5. You need to analyze a large PDF (300 pages) for semantic search. Which model and approach should you use on OCI GenAI?**  
+A. Use a chat completion model to directly input all 300 pages as a prompt.  
+B. Use the embedding model to convert chunks of the document into vectors, then use similarity search for relevant content.  
+C. Fine-tune the chat model on the PDF content first.  
+D. This is not possible with the OCI GenAI service.  
+✅ **Correct Answer:** B. Use the embedding model to convert chunks of the document into vectors, then use similarity search for relevant content.
+
+---
+
+### **6. The Cohere Command-R vs. Command-R-Plus models in OCI GenAI differ primarily in what way?**  
+A. The R-Plus model supports a far larger context window (prompt size up to 128k tokens) and higher performance, whereas Command-R is limited to 16k context.  
+B. Command-R-Plus handles only code, Command-R handles only text.  
+C. Command-R is for English, R-Plus is for multilingual tasks.  
+D. R-Plus is cheaper to run but less capable than R.  
+✅ **Correct Answer:** A. The R-Plus model supports a far larger context window (prompt size up to 128k tokens) and higher performance, whereas Command-R is limited to 16k context.
+
+---
+
+### **7. Which is a supported use case of OCI’s pre-trained foundation models?**  
+A. Generating images from text descriptions.  
+B. Summarizing a document or answering questions in a chat format.  
+C. Training a new model from scratch using a custom architecture.  
+D. Real-time video translation.  
+✅ **Correct Answer:** B. Summarizing a document or answering questions in a chat format.
+
+---
+
+### **8. Why would you choose to fine-tune a foundation LLM via OCI GenAI?**  
+A. To adjust the model’s weights so it performs better on domain-specific tasks or data (e.g., your industry’s terminology).  
+B. To significantly reduce the model’s size by pruning parameters.  
+C. To increase the context window of the model.  
+D. Fine-tuning is not possible in OCI GenAI; only prompting is supported.  
+✅ **Correct Answer:** A. To adjust the model’s weights so it performs better on domain-specific tasks or data (e.g., your industry’s terminology).
+
+---
+
+### **9. Oracle’s GenAI service implements an efficient fine-tuning method called T-Few. What is a key characteristic of T-Few fine-tuning?**  
+A. It fully trains the entire model on your data.  
+B. It inserts new adapter layers and updates only a small fraction of the model’s weights, reducing training time and cost.  
+C. It uses reinforcement learning from human feedback instead of gradient descent.  
+D. It requires at least 1 million training examples to be effective.  
+✅ **Correct Answer:** B. It inserts new adapter layers and updates only a small fraction of the model’s weights, reducing training time and cost.
+
+---
+
+### **10. Before fine-tuning a model on OCI GenAI, what resource must you have or create?**  
+A. A Kubernetes cluster in OCI for the training job.  
+B. A dedicated AI cluster (GPU cluster) is allocated to run the fine-tuning job.  
+C. A Docker container with the model weights.  
+D. An Object Storage bucket to manually upload the model.  
+✅ **Correct Answer:** D. An Object Storage bucket to manually upload the model.
+
+---
+
+Here is the **continued reformatted Q&A list** for **Domain 2: OCI Generative AI Service**, with each question followed by all options and the correct answer clearly indicated:
+
+---
+
+### **11. In OCI GenAI, what is a model endpoint?**  
+A. A saved checkpoint of a training run.  
+B. A network endpoint URL where a specific model (base or fine-tuned) is deployed for inference requests.  
+C. The internal API the service uses to call the foundation model.  
+D. The logging interface for model outputs.  
+✅ **Correct Answer:** B. A network endpoint URL where a specific model (base or fine-tuned) is deployed for inference requests.
+
+---
+
+### **12. After you fine-tune a foundation model on OCI GenAI, where are the resulting custom model weights stored?**  
+A. In Oracle’s central model repository (shared across tenants).  
+B. In your OCI Object Storage, within your tenancy.  
+C. They are merged back into the base model and are not accessible separately.  
+D. On the GPU cluster indefinitely.  
+✅ **Correct Answer:** B. In your OCI Object Storage, within your tenancy.
+
+---
+
+### **13. How does OCI GenAI ensure that one customer’s fine-tuning activities don’t interfere with another’s?**  
+A. By assigning dedicated GPU clusters and isolated networking (RDMA) for each customer’s workload.  
+B. By running jobs sequentially for each region.  
+C. Through virtualization of GPUs with hypervisors.  
+D. By only allowing one user of the service at a time.  
+✅ **Correct Answer:** A. By assigning dedicated GPU clusters and isolated networking (RDMA) for each customer’s workload.
+
+---
+
+### **14. Which OCI service is used to control access to the Generative AI Service APIs and endpoints?**  
+A. Oracle Cloud Guard.  
+B. OCI Identity and Access Management (IAM).  
+C. Oracle Data Safe.  
+D. OCI Key Management.  
+✅ **Correct Answer:** B. OCI Identity and Access Management (IAM).
+
+---
+
+### **15. What role does OCI Key Management (Vault) play in the GenAI service?**  
+A. It stores API keys for accessing GenAI.  
+B. It securely manages the encryption keys for the hosted foundation models and fine-tuning artifacts.  
+C. It monitors the service for security threats.  
+D. It manages SSH keys for GPU cluster access.  
+✅ **Correct Answer:** B. It securely manages the encryption keys for the hosted foundation models and fine-tuning artifacts.
+
+---
+
+### **16. Your company’s compliance policy says “no customer data used for AI should leave the tenant’s boundary.” How does OCI GenAI support this?**  
+A. All data sent to the GenAI models is first anonymized by Oracle.  
+B. Fine-tuned models and any data embeddings are stored within your own tenancy’s infrastructure (e.g., your Object Storage and database).  
+C. Oracle shares the fine-tuned model with others but not the raw data.  
+D. The service cannot guarantee this – data always leaves the tenant boundary.  
+✅ **Correct Answer:** B. Fine-tuned models and any data embeddings are stored within your own tenancy’s infrastructure (e.g., your Object Storage and database).
+
+---
+
+### **17. Which of the following is NOT a feature or characteristic of OCI’s Generative AI Service?**  
+A. Choice of multiple pre-trained LLMs (Cohere, Llama 2) for generation and embedding tasks.  
+B. Automatic scaling and serverless usage – you do not manage compute instances.  
+C. Built-in support for deploying the models on-premises.  
+D. The ability to fine-tune foundation models with your dataset.  
+✅ **Correct Answer:** C. Built-in support for deploying the models on-premises.
+
+---
+
+### **18. What is the purpose of the GenAI Playground in the OCI Console?**  
+A. It is a visual interface for testing prompts and models interactively, without writing code.  
+B. It’s a training environment for model fine-tuning.  
+C. It’s a monitoring dashboard for model endpoints.  
+D. It is a game that teaches you how to use AI.  
+✅ **Correct Answer:** A. It is a visual interface for testing prompts and models interactively, without writing code.
+
+---
+
+### **19. Which use case would embedding models + semantic search be better for than a standard keyword search?**  
+A. Finding documents that are relevant in meaning to “investment banking trends,” even if they don’t contain those exact words.  
+B. Finding documents that contain the exact phrase “investment banking trends.”  
+C. Searching by document title only.  
+D. Ensuring results are ordered by date.  
+✅ **Correct Answer:** A. Finding documents that are relevant in meaning to “investment banking trends,” even if they don’t contain those exact words.
+
+---
+
+### **20. After deploying a custom model to an endpoint, how do you integrate it into an application?**  
+A. By calling the endpoint’s REST API with appropriate auth, passing prompts, and getting model inferences in response.  
+B. By connecting the OCI Streaming service to the endpoint.  
+C. By using an SDK only, the model cannot be called via REST.  
+D. By importing the model file into your application manually.  
+✅ **Correct Answer:** A. By calling the endpoint’s REST API with appropriate auth, passing prompts, and getting model inferences in response.
+
+---
+
+Here is the **reformatted Q&A set** for **Retrieval-Augmented Generation (RAG)** in the context of LLM applications, with each question followed by all options and the correct answer clearly indicated:
+
+---
+
+### **1. What is Retrieval-Augmented Generation (RAG) in the context of LLM applications?**  
+A. A method to train language models faster.  
+B. Using a search or database retrieval step to fetch relevant context, and providing that context to an LLM to ground its answer.  
+C. Running an LLM on a very large input (retrieving all possible data at once).  
+D. A type of prompt format for arithmetic reasoning.  
+✅ **Correct Answer:** B. Using a search or database retrieval step to fetch relevant context, and providing that context to an LLM to ground its answer.
+
+---
+
+### **2. Why is RAG useful for Q&A chatbots?**  
+A. It bypasses the need for an LLM entirely.  
+B. It allows the LLM to provide up-to-date, specific information from a document set, reducing hallucination and extending knowledge beyond the model’s training.  
+C. It significantly increases the LLM’s parameter count.  
+D. It ensures the LLM will never make errors.  
+✅ **Correct Answer:** B. It allows the LLM to provide up-to-date, specific information from a document set, reducing hallucination and extending knowledge beyond the model’s training.
+
+---
+
+### **3. What are the main stages of a basic RAG pipeline?**  
+A. Ingestion (load and chunk documents into a vector index), Retrieval (find relevant chunks by similarity to the query), and Generation (the LLM produces an answer using the retrieved context).  
+B. Training, Validation, and Deployment.  
+C. Tokenization, Embedding, and Decoding.  
+D. Authentication, Transformation, Response.  
+✅ **Correct Answer:** A. Ingestion (load and chunk documents into a vector index), Retrieval (find relevant chunks by similarity to the query), and Generation (the LLM produces an answer using the retrieved context).
+
+---
+
+### **4. Why are documents split into chunks during the RAG ingestion phase?**  
+A. LLMs can only read short texts due to token limits, so splitting ensures each chunk can fit into the model’s context.  
+B. To increase the total number of vectors for more storage usage.  
+C. To make the embeddings more random.  
+D. To ensure each word becomes its chunk.  
+✅ **Correct Answer:** A. LLMs can only read short texts due to token limits, so splitting ensures each chunk can fit into the model’s context.
+
+---
+
+### **5. What is an embedding in the context of NLP and semantic search?**  
+A. A fixed-length numeric vector that represents the semantic meaning of text (words, sentences, or documents).  
+B. A hyperlink inside a document.  
+C. A type of database index for keywords.  
+D. A summary of a document.  
+✅ **Correct Answer:** A. A fixed-length numeric vector that represents the semantic meaning of text (words, sentences, or documents).
+
+---
+
+### **6. How can you generate text embeddings using OCI’s services?**  
+A. By using the OCI Generative AI Embedding model endpoint to get vector representations of text.  
+B. By running a Hadoop cluster on OCI.  
+C. Only by using third-party libraries outside OCI.  
+D. The OCI GenAI service does not support embeddings.  
+✅ **Correct Answer:** A. By using the OCI Generative AI Embedding model endpoint to get vector representations of text.
+
+---
+
+### **7. Oracle Database 23c introduced vector support. Which statement is true about Oracle’s vector store capability?**  
+A. It requires data to be stored as BLOBs; there is no special vector type.  
+B. It provides a new VECTOR data type for columns to hold embedding vectors, and SQL functions to perform similarity search (e.g., cosine distance).  
+C. It only works with image data, not text embeddings.  
+D. Oracle 23c automatically trains LLMs inside the database.  
+✅ **Correct Answer:** B. It provides a new VECTOR data type for columns to hold embedding vectors, and SQL functions to perform similarity search (e.g., cosine distance).
+
+---
+
+### **8. Which similarity metric compares two text embedding vectors by measuring the angle between them while ignoring magnitude?**  
+A. Euclidean distance.  
+B. Dot product.  
+C. Cosine similarity.  
+D. Manhattan distance.  
+✅ **Correct Answer:** C. Cosine similarity.
+
+---
+
+### **9. What is the purpose of using an index (like HNSW or IVF) in a vector database?**  
+A. To compress the vectors into smaller dimensions.  
+B. To accelerate similarity search by organizing vectors for faster nearest-neighbor lookup.  
+C. To convert vectors back into text.  
+D. To ensure exact keyword matching on vector data.  
+✅ **Correct Answer:** B. To accelerate similarity search by organizing vectors for faster nearest-neighbor lookup.
+
+---
+
+### **10. In LangChain, how do you combine the LLM and retrieval steps to implement RAG Q&A?**  
+A. Use a specialized chain (e.g., RetrievalQA) that automatically queries a vector store retriever for relevant documents and passes them to the LLM for answer generation.  
+B. Manually call the database, then manually call the LLM in code.  
+C. Fine-tune the LLM on the documents instead of retrieving.  
+D. LangChain cannot handle that; you must write your pipeline.  
+✅ **Correct Answer:** A. Use a specialized chain (e.g., RetrievalQA) that automatically queries a vector store retriever for relevant documents and passes them to the LLM for answer generation.
+
+---
+
+### **11. In a multi-turn chatbot built with LangChain, what component is used to ensure the AI remembers previous conversation turns?**  
+A. The Memory module, which stores prior messages or a summary, so the LLM can incorporate past context into new answers.  
+B. The VectorStore, which keeps all past dialogues as embeddings.  
+C. A special prompt that repeats everything said so far (no built-in component).  
+D. LangChain does this automatically without any configuration.  
+✅ **Correct Answer:** A. The Memory module, which stores prior messages or a summary, so the LLM can incorporate past context into new answers.
+
+---
+
+### **12. Oracle’s implementation of RAG often uses Oracle DB as the vector store. What must be ensured when using an Oracle Database as a knowledge base for RAG?**  
+A. The database version is 19c or lower.  
+B. The same embedding model used to generate the chunk vectors is used to encode incoming queries, to ensure vectors are comparable.  
+C. All text data must be in one large row.  
+D. Only one query can be processed at a time.  
+✅ **Correct Answer:** B. The same embedding model used to generate the chunk vectors is used to encode incoming queries, to ensure vectors are comparable.
+
+---
+
+### **13. What is a benefit of semantic search over traditional keyword (lexical) search in the RAG context?**  
+A. It finds results that are related in meaning, even if exact keywords differ or are not present.  
+B. It is 100% precise with no irrelevant results.  
+C. It ignores the actual content and matches only metadata.  
+D. It’s always faster than keyword search.  
+✅ **Correct Answer:** A. It finds results that are related in meaning, even if exact keywords differ or are not present.
+
+---
+
+### **14. If you set `return_source_documents=True` in a LangChain RetrievalQA chain, what happens?**  
+A. The LLM’s answer will include citations or the actual source text for transparency.  
+B. The chain will output the retrieved documents (or their references) along with the answer, allowing you to see which sources were used.  
+C. The LLM will quote entire documents in its answer.  
+D. The chain will return only the documents and not answer the question.  
+✅ **Correct Answer:** B. The chain will output the retrieved documents (or their references) along with the answer, allowing you to see which sources were used.
+
+---
+
+Here is the **reformatted Q&A set** for **Oracle Cloud Generative AI Agents**, with each question followed by all options and the correct answer clearly indicated:
+
+---
+
+### **1. What is the Oracle Cloud Generative AI Agents service?**  
+A. A fully managed service that lets you create LLM-powered agents (chatbots) that use large language models plus an intelligent retrieval system to answer queries using your enterprise data.  
+B. A tool for training new foundation models.  
+C. A hardware device for running AI models.  
+D. A SaaS application for human call center agents.  
+✅ **Correct Answer:** A. A fully managed service that lets you create LLM-powered agents (chatbots) that use large language models plus an intelligent retrieval system to answer queries using your enterprise data.
+
+---
+
+### **2. In the context of OCI GenAI Agents, what is a Knowledge Base?**  
+A. A collection of rules that the agent follows.  
+B. The vector-indexed datastore of your ingested content, which the agent can query for relevant information.  
+C. The pre-trained knowledge of the base LLM.  
+D. A log of all conversations the agent has had.  
+✅ **Correct Answer:** B. The vector-indexed datastore of your ingested content, which the agent can query for relevant information.
+
+---
+
+### **3. Which data source types are supported for populating an Oracle GenAI Agent’s knowledge base? (Choose 2)**  
+A. Object Storage bucket – the service can ingest PDF or text files from a bucket.  
+B. OCI OpenSearch index – use an OCI Search with an OpenSearch index that’s already loaded with data.  
+C. Oracle Database 23c vector store – bring your table of vectors and a similarity search function.  
+D. On-premises Hadoop file system.  
+✅ **Correct Answers:** A. Object Storage bucket – the service can ingest PDF or text files from a bucket.  
+✅ **B. OCI OpenSearch index – use an OCI Search with an OpenSearch index that’s already loaded with data.**
+
+---
+
+### **4. When using an Object Storage bucket as a knowledge base, which is NOT a requirement or limitation?**  
+A. Files must be in PDF or plain text format (up to 100 MB each).  
+B. Only one bucket can be used per data source.  
+C. Images within PDFs are ignored entirely (cannot be processed).  
+D. Charts in PDFs should be 2D with labeled axes for the AI to interpret them.  
+✅ **Correct Answer:** D. Charts in PDFs should be 2D with labeled axes for the AI to interpret them.
+
+---
+
+### **5. You want to use an Oracle Autonomous Database as a knowledge base for an agent. What must you do?**  
+A. Manually convert your data to embeddings using an external tool first.  
+B. Create a table with text and vector columns (for chunks and their embeddings) and implement a PL/SQL vector search function that the agent will call for retrieval.  
+C. Export the entire database to JSON files and put them in Object Storage.  
+D. It’s not possible to connect the GenAI Agent to a database.  
+✅ **Correct Answer:** B. Create a table with text and vector columns (for chunks and their embeddings) and implement a PL/SQL vector search function that the agent will call for retrieval.
+
+---
+
+### **6. What is the purpose of an Agent Endpoint in OCI Generative AI Agents?**  
+A. It’s the interface where you configure the agent’s personality.  
+B. It is a deployment point that you create, which gives a stable REST endpoint or chat interface for interacting with your agent.  
+C. It’s an OCI Monitoring alarm for the agent.  
+D. It’s the vector database connection.  
+✅ **Correct Answer:** B. It is a deployment point that you create, which gives a stable REST endpoint or chat interface for interacting with your agent.
+
+---
+
+### **7. Which of the following operations can OCI’s Generative AI Agent perform that a basic LLM chatbot alone cannot?**  
+A. Maintain conversational context across turns.  
+B. Call external tools or APIs (e.g., database queries, booking systems) as decided by the LLM’s reasoning.  
+C. Generate text in English.  
+D. Translate from English to French.  
+✅ **Correct Answer:** B. Call external tools or APIs (e.g., database queries, booking systems) as decided by the LLM’s reasoning.
+
+---
+
+### **8. What is the function of the Trace feature in the GenAI Agents service?**  
+A. It logs and displays the sequence of steps the agent took for each user query – including the prompts, retrieved data, and LLM’s intermediate reasoning.  
+B. It traces network packets for debugging connectivity.  
+C. It summarizes the conversation after each turn.  
+D. It re-trains the agent based on user feedback.  
+✅ **Correct Answer:** A. It logs and displays the sequence of steps the agent took for each user query – including the prompts, retrieved data, and LLM’s intermediate reasoning.
+
+---
+
+### **9. How does the agent provide citations in responses, and why is this useful?**  
+A. It outputs the embedding vector to prove that it used the knowledge base.  
+B. It appends source titles/URLs and page references for facts in its answer, so users can verify information back to the original documents.  
+C. It cites the LLM model (e.g., “Answer generated by Llama-2”). Citations are used to credit the developers of the agent.  
+✅ **Correct Answer:** B. It appends source titles/URLs and page references for facts in its answer, so users can verify information back to the original documents.
+
+---
+
+### **10. What is content moderation in OCI GenAI Agents?**  
+A. A feature that filters out or masks hateful, harmful, or policy-violating content in user prompts or the agent’s responses.  
+B. A way to limit how much content the agent can output (rate limiting).  
+C. A process of curating which files go into the knowledge base.  
+D. An Oracle support service for monitoring your agent.  
+✅ **Correct Answer:** A. A feature that filters out or masks hateful, harmful, or policy-violating content in user prompts or the agent’s responses.
+
+---
+
+### **11. What does enabling hybrid search for a knowledge base do?**  
+A. It stores half the data as vectors and half as text.  
+B. It combines semantic vector search with keyword (lexical) search to improve result relevance.  
+C. It uses two different LLMs for answering.  
+D. It allows the agent to search the internet.  
+✅ **Correct Answer:** B. It combines semantic vector search with keyword (lexical) search to improve result relevance.
+
+---
+
+Here is the **reformatted Q&A set** for **OCI Generative AI Agents – Advanced Topics**, with each question followed by all options and the correct answer clearly indicated:
+
+---
+
+### **1. Knowledge Base Integration**  
+Your team configures a GenAI Agent with an Object Storage knowledge base. The PDF files contain multilingual text, tables, and scanned diagrams. Which data elements will the Agent reliably ingest and use for retrieval?  
+A. All multilingual text content, including extracted text from embedded diagrams.  
+B. Text-based content only; embedded diagrams and images will be ignored.  
+C. Multilingual text only if explicitly labeled with UTF-8 encoding.  
+D. Only English text content and labeled tables.  
+✅ **Correct Answer:** B. Text-based content only; embedded diagrams and images will be ignored.
+
+---
+
+### **2. Model Selection**  
+When choosing between OCI’s Cohere-based LLM and an OpenSearch-powered embedding model for an Agent, which task requires embedding models rather than generative LLMs?  
+A. Summarizing customer complaints.  
+B. Classifying text into sentiment categories.  
+C. Performing similarity search over large knowledge bases.  
+D. Answering open-ended questions from users.  
+✅ **Correct Answer:** C. Performing similarity search over large knowledge bases.
+
+---
+
+### **3. Vector Database Integration**  
+An enterprise wants to use its own Oracle Database 23ai with vector support for semantic search in a GenAI Agent. Which statement is correct?  
+A. GenAI Agents can natively connect to Oracle Database vector stores as a knowledge base.  
+B. GenAI Agents cannot directly use Database 23ai; data must first be staged into Object Storage or OpenSearch.  
+C. GenAI Agents can use 23ai only for structured SQL queries, not vector similarity.  
+D. GenAI Agents auto-convert 23ai vector tables into embeddings without configuration.  
+✅ **Correct Answer:** A. GenAI Agents can natively connect to Oracle Database vector stores as a knowledge base.
+
+---
+
+### **4. Fine-tuning Limits**  
+Your team wants to fine-tune a foundation model with customer call transcripts. Which of the following is a limitation of OCI fine-tuning?  
+A. You can only fine-tune embedding models, not generative models.  
+B. Fine-tuned models cannot be deployed into private subnets.  
+C. Fine-tuned models inherit usage quotas and limits of the base model family.  
+D. Fine-tuned models automatically overwrite the base model.  
+✅ **Correct Answer:** C. Fine-tuned models inherit usage quotas and limits of the base model family.
+
+---
+
+### **5. Governance**  
+Which framework is explicitly referenced in OCI’s GenAI governance best practices for risk management?  
+A. COBIT 2019  
+B. NIST AI Risk Management Framework (AI RMF)  
+C. ITIL v4  
+D. ISO 22301  
+✅ **Correct Answer:** B. NIST AI Risk Management Framework (AI RMF)
+
+---
+
+### **6. Agent vs Chatbot**  
+Which operation can an OCI Generative AI Agent perform that a standalone LLM chatbot cannot?  
+A. Maintain conversational context.  
+B. Generate multilingual text.  
+C. Call external APIs/tools during reasoning.  
+D. Perform text summarization.  
+✅ **Correct Answer:** C. Call external APIs/tools during reasoning.
+
+---
+
+### **7. Latency Optimization**  
+You deploy a GenAI Agent that queries a 1 TB knowledge base in Object Storage. Latency is high. Which OCI-native optimization is recommended?  
+A. Convert all files to image-based PDFs for faster parsing.  
+B. Pre-chunk documents into smaller text blocks before ingestion.  
+C. Store files in multiple buckets and point the Agent to all of them.  
+D. Increase the beam size of the generative model.  
+✅ **Correct Answer:** B. Pre-chunk documents into smaller text blocks before ingestion.
+
+---
+
+### **8. Model Deployment**  
+You need to deploy a fine-tuned foundation model into a production environment that handles confidential healthcare data. The compliance team requires network isolation and no public internet exposure. Which OCI deployment option best satisfies this requirement?  
+A. Deploy the model in a public endpoint with VCN security lists blocking all inbound traffic.  
+B. Deploy the model as a private endpoint within a VCN subnet, accessible only via private IPs.  
+C. Use the base foundation model directly, since only fine-tuned models require isolation.  
+D. Host the model on Object Storage with signed URLs for restricted access.  
+✅ **Correct Answer:** B. Deploy the model as a private endpoint within a VCN subnet, accessible only via private IPs.
+
+---
+
+### **9. Model Privacy**  
+Which statement is true about data sent to OCI Generative AI APIs?  
+A. Customer data may be retained for model training unless disabled in settings.  
+B. Customer data is never used to train Oracle’s base foundation models.  
+C. Data is stored for training by default for 30 days.  
+D. Data retention is required unless the tenant uses a private subnet.  
+✅ **Correct Answer:** B. Customer data is never used to train Oracle’s base foundation models.
+
+---
+
+### **10. Retrieval-Augmented Generation (RAG)**  
+In OCI GenAI, what is the role of the embedding model in a RAG pipeline?  
+A. Generate the final answer in natural language.  
+B. Map user queries and documents into a shared vector space for similarity search.  
+C. Tokenize text into subwords for faster LLM inference.  
+D. Ensure data privacy by masking sensitive fields.  
+✅ **Correct Answer:** B. Map user queries and documents into a shared vector space for similarity search.
+
+---
+
+### **11. Multi-Agent Coordination**  
+You design a system where one GenAI Agent handles customer inquiries, and another Agent handles ticket creation via API. What mechanism ensures the Agents can coordinate securely?  
+A. Use OCI Service Connectors with IAM policies.  
+B. Use embedded prompts with role-based delegation.  
+C. Use Agent-to-Agent handoff with OCI Functions as middleware.  
+D. Configure both Agents in a single session with expanded context windows.  
+✅ **Correct Answer:** C. Use Agent-to-Agent handoff with OCI Functions as middleware.
+
+---
+
+### **12. Cost Optimization**  
+Your CIO complains about high costs from using the largest foundation models for all GenAI queries. Which OCI feature helps cut costs while balancing accuracy?  
+A. Autoscaling Object Storage buckets.  
+B. Dynamic model selection with smaller models for lightweight tasks.  
+C. Increasing beam size to reduce retries.  
+D. Using Free Tier foundation models.  
+✅ **Correct Answer:** B. Dynamic model selection with smaller models for lightweight tasks.
+
+---
+
+### **13. File Size Limits**  
+What is the maximum file size for ingestion into an Object Storage bucket as a GenAI knowledge base?  
+A. 10 MB  
+B. 50 MB  
+C. 100 MB  
+D. Unlimited, if partitioned  
+✅ **Correct Answer:** C. 100 MB
+
+---
+
+### **14. Tool Invocation**  
+Which best describes how an Agent decides to call an external tool?  
+A. Tools are invoked only at fixed checkpoints configured by the developer.  
+B. The LLM’s reasoning determines if/when to call the tool based on user input and context.  
+C. Tools must be triggered manually by a system administrator.  
+D. Agents cannot call external tools directly.  
+✅ **Correct Answer:** B. The LLM’s reasoning determines if/when to call the tool based on user input and context.
+
+---
+
+### **15. Multilingual Limits**  
+Your Agent must handle queries in English, French, and Japanese. Which is a limitation?  
+A. Embedding models support English only.  
+B. Generative models support English and French, but not Japanese.  
+C. Embedding models support multilingual text, but accuracy may vary across languages.  
+D. Multilingual support requires fine-tuning.  
+✅ **Correct Answer:** C. Embedding models support multilingual text, but accuracy may vary across languages.
+
+---
+
+### **16. SLA Awareness**  
+Which SLA condition applies to OCI Generative AI service availability?  
+A. GenAI inherits the same SLA as Object Storage.  
+B. Oracle publishes distinct SLA metrics for GenAI APIs separate from core OCI services.  
+C. SLAs apply only when using private foundation models.  
+D. SLAs apply only to Agents, not base models.  
+✅ **Correct Answer:** B. Oracle publishes distinct SLA metrics for GenAI APIs separate from core OCI services.
+
+---
+
+### **17. Knowledge Base Sync**  
+If you update a PDF in the Object Storage bucket linked to a GenAI knowledge base, what must you do to ensure the Agent uses the new version?  
+A. Nothing; Agents sync in real time with Object Storage.  
+B. Re-trigger an ingestion job to refresh embeddings.  
+C. Delete and recreate the entire knowledge base.  
+D. Update the IAM policy attached to the Agent.  
+✅ **Correct Answer:** B. Re-trigger an ingestion job to refresh embeddings.
+
+---
+
+### **18. Model Hallucination**  
+Which mitigation best reduces hallucination in OCI GenAI Agents?  
+A. Increase the temperature parameter.  
+B. Restrict generation to retrieval-augmented context only.  
+C. Disable embeddings.  
+D. Switch from generative to embedding-only responses.  
+✅ **Correct Answer:** B. Restrict generation to retrieval-augmented context only.
+
+---
+
+### **19. IAM Roles**  
+To allow a GenAI Agent to access data in an OCI Object Storage bucket, which IAM principle is required?  
+A. Grant OBJECT_WRITE and OBJECT_DELETE privileges.  
+B. Grant OBJECT_READ access to the Agent’s dynamic group.  
+C. Grant tenancy-level ADMIN rights to the Agent.  
+D. No IAM permissions are needed; Agents bypass IAM.  
+✅ **Correct Answer:** B. Grant OBJECT_READ access to the Agent’s dynamic group.
+
+---
+
+### **20. Model Drift**  
+Your fine-tuned sentiment analysis model starts misclassifying slang terms. Which is the most appropriate mitigation in OCI?  
+A. Increase beam size.  
+B. Collect new training data, including slang, and refine.  
+C. Adjust Object Storage bucket policies.  
+D. Switch to an embedding model.  
+✅ **Correct Answer:** B. Collect new training data, including slang, and refine.
+
+---
 
