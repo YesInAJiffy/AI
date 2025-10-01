@@ -1077,3 +1077,621 @@ Answer Key (for self-check)
 1: B 2: C 3: B 4: C 5: B 6: C 7: B 8: B 9: B 10: B 11: C 12: B 13: C 14: B 15: C 16: B 17: B 18: B 19: B 20: B
 
 Resources
+
+
+
+
+
+
+
+Here’s a **cleanly formatted revision sheet** for the Oracle AI Professional Certification:
+
+---
+
+## 🧠 Oracle AI Professional Certification – Revision Sheet  
+**Created to help you prepare and pass the exam**
+
+---
+
+### 🔹 Fundamentals
+
+**1. What are Large Language Models (LLMs)?**  
+- **Definition**: Probabilistic models of text that compute distributions over vocabulary.  
+- **Core Function**: Given input text, predict the most likely next word(s).  
+- **“Large”**: Refers to the number of trainable parameters—typically in the billions.
+
+---
+
+### 🔹 Architectures of LLMs
+
+- **Encoders**: Convert text into embeddings (numeric representations of meaning).  
+- **Decoders**: Generate text by predicting the next token.  
+- **Encoder-Decoder Models**: Combine both; mainly used for translation and sequence-to-sequence tasks.
+
+---
+
+### 🔹 Prompting and Prompt Engineering
+
+- **Prompting**: Changing model inputs to influence output.  
+- **Prompt Engineering**: Refining inputs to get desired results.
+
+---
+
+### 🔹 Risks of Prompting
+
+- **Prompt Injection**: Malicious manipulation of inputs to force unintended outputs (similar to SQL injection).  
+- **Leakage**: Attackers can trick LLMs into revealing developer prompts.  
+- **Data Risks**: Potential exposure of private or sensitive data from training.
+
+---
+
+### 🔹 Training Methods
+
+- **Fine-Tuning**: Retraining all parameters for a specific task. Expensive but effective.  
+- **Parameter-Efficient Fine-Tuning (PEFT)**: Train only a small subset of parameters (e.g., LoRA).  
+- **Soft Prompting**: Train special tokens (prompt embeddings) without changing core parameters.  
+- **Continual Pretraining**: Adapt the model to a new domain with large amounts of new text.
+
+---
+
+### 🔹 Decoding (Generating Text)
+
+- **Greedy Decoding**: Always pick the most probable token.  
+- **Random Sampling**: Pick words based on a probability distribution.  
+- **Temperature**: Controls randomness; lower = deterministic, higher = more creative.  
+- **Nucleus Sampling (Top-p)**: Restrict sampling to the most probable portion of the distribution.  
+- **Beam Search**: Generate multiple sequences simultaneously, keep the best ones.
+
+---
+
+### 🔹 Key Challenges
+
+- **Hallucinations**: Model generates fluent but incorrect information.  
+- **Bias and Safety**: Outputs may reflect harmful or biased data from training.  
+- **Cost**: Training very large models requires thousands of GPUs and significant resources.
+
+---
+
+Here’s a clean and professional formatting of your content on **OCI Generative AI Service**:
+
+---
+
+# **OCI Generative AI Service Overview**
+
+## **1. Introduction to OCI Generative AI**
+
+- **OCI Generative AI Service**: A fully managed, serverless platform for building generative AI applications.
+- **Access**: Single API supporting multiple foundational models (e.g., **Cohere**, **Meta**).
+
+---
+
+## **2. Pre-trained Models**
+
+### **Chat Models**
+- **Command-R-Plus**
+- **Command-R (16k)**
+- **Meta Llama 3.1 / 3.2 / 3.3**
+
+### **Embedding Models**
+- Convert text into vector representations.
+- **Use Cases**: Semantic search, clustering, classification, Retrieval-Augmented Generation (RAG).
+- **Models**:
+  - **Cohere embed-english** & **embed-multilingual** (supports 100+ languages)
+  - **V3 embed models**: Improved retrieval quality for noisy datasets
+- **Vector Dimensions**:
+  - Standard: 1024-d
+  - Lite: 384-d
+- **Limits**:
+  - 512 tokens per input
+  - Max 96 inputs per run
+
+---
+
+## **3. Prompting & Prompt Engineering**
+
+### **Definitions**
+- **Prompt**: Input text provided to the LLM.
+- **Prompt Engineering**: Refining inputs to achieve desired outputs.
+
+### **Types of Prompting**
+- **Zero-shot**: Only task description.
+- **Few-shot (k-shot)**: Includes *k* examples.
+- **Chain-of-Thought (CoT)**: Step-by-step reasoning.
+- **Zero-shot CoT**: Add “Let’s think step by step.”
+- **In-context learning**: Supply demonstrations within the prompt.
+
+### **Prompt Parameters**
+- **Preamble Override**: Change tone/style (e.g., pirate tone).
+- **Temperature**: Controls randomness (0 = deterministic, 1 = diverse).
+- **Top-k**: Select from top *k* highest probability tokens.
+- **Top-p (nucleus sampling)**: Select from smallest set of tokens summing to *p*.
+- **Frequency Penalty**: Reduces repetition based on frequency.
+- **Presence Penalty**: Penalizes repeated tokens regardless of frequency.
+
+---
+
+## **4. Customization Options**
+
+- **Training from scratch** is **not recommended** due to high cost and data requirements.
+
+---
+
+## **5. Fine-Tuning & Inference**
+
+### **Fine-Tuning**
+- Retraining an LLM (fully or partially) on domain-specific data.
+- **Workflow**:
+  1. Collect training data.
+  2. Upload to Object Storage.
+  3. Launch fine-tuning job (select base model + method).
+  4. Training runs on GPU cluster.
+  5. Store encrypted fine-tuned weights in Object Storage.
+  6. Register model in OCI Generative AI.
+
+### **Inference**
+- Serving phase: Model generates predictions/answers from prompts.
+- **Workflow**:
+  1. User sends prompt via app → API.
+  2. Model receives prompt.
+  3. Generates output tokens using decoding strategies (greedy, top-k, top-p, temperature).
+  4. Returns output to end-user.
+  5. Optional: Logging, tracing, moderation, citations (for RAG).
+
+### **Evaluation Metrics**
+- **Perplexity**: Predictive accuracy (lower = better).
+- **BLEU**: Translation/text similarity via n-gram overlap.
+- **ROUGE**: Recall/overlap (used in summarization).
+- **Accuracy / F1-score**: Classification tasks.
+- **Loss Function**: Measures prediction error during training.
+
+---
+
+## **6. Dedicated AI Clusters**
+
+### **Fine-Tuning Clusters**
+- **Purpose**: Train/adapt models with custom data.
+- **Billing**: Pay only for fine-tuning duration.
+
+**Example**:  
+Fine-tuning a Cohere Command-R model with 8 units over 12 hours:  
+**Cost** = 8 units × hourly rate × 12 hrs
+
+### **Hosting (Inference) Clusters**
+- **Purpose**: Serve models in production.
+- **Billing**: Minimum 744 hours/month (24×7).
+
+**Example**:  
+Hosting a Llama 13B model with 2 units for a customer support chatbot.
+
+---
+Here’s a professionally formatted version of your content on **LangChain, RAG, and Oracle 23ai Integration**:
+
+---
+
+# **LangChain, RAG, and Oracle 23ai Integration**
+
+## **1. LangChain Overview**
+
+**LangChain** is a framework for building LLM-powered applications that are context-aware.
+
+### **Prompt Templates**
+- **PromptTemplate**: For single-string inputs; ideal for simple LLMs.
+- **ChatPromptTemplate**: Supports multi-turn conversational formats with structured roles (e.g., system, human, AI).
+
+### **Memory in LangChain**
+- LLMs are **stateless** by default—each query is processed independently.
+- **Memory** enables context-aware responses by remembering previous interactions.
+- LangChain manages how past inputs/outputs are stored and reused; it does **not** modify the LLM itself.
+
+### **How Memory Works**
+1. User asks a question → LangChain records it.
+2. LLM generates a response → also recorded.
+3. On the next interaction, LangChain retrieves conversation history or a summary.
+4. This history is appended to the new prompt → LLM sees context.
+
+---
+
+## **2. OCI Generative AI + Oracle 23ai Integration**
+
+- **Embeddings**: Generated using **OCI Generative AI Service**.
+- **Oracle 23ai SELECT AI**: Converts natural language into SQL queries using OCI Generative AI.
+- **Oracle 23ai Vector Store**:
+  - Stores embeddings using the `VECTOR` datatype.
+  - Supports **similarity search** for retrieval tasks.
+
+---
+
+## **3. Retrieval-Augmented Generation (RAG)**
+
+### **Why RAG?**
+- Traditional LLMs are limited by static training data (may be outdated or biased).
+- **RAG** retrieves relevant, up-to-date information and feeds it as context to the LLM.
+
+---
+
+## **4. RAG Pipeline Phases**
+
+### **Phases**
+1. **Ingestion**: Load and split documents (e.g., `PDFReader`, `TextSplitter`).
+2. **Embedding & Storage**: Use `OCIEmbeddingModel` and store in `OracleVS`.
+3. **Retrieval**: Perform similarity search (e.g., *k=3*, cosine or dot product).
+4. **Generation**: Use `RetrievalQA` + `ChatOCIGenAI` to generate answers.
+
+### **Execution Flow**
+- Query → Retrieve → Generate
+
+---
+
+## **5. Conversational Memory in RAG**
+
+- **Chat**: A sequence of Q&A interactions.
+- **Memory**: Maintains conversation history as context.
+- LangChain provides memory classes to persist:
+  - Summaries
+  - Entities
+  - Raw text
+
+---
+
+## **6. Vector Indexes for Similarity Search**
+
+### **Why Use Indexes?**
+- As the chunk store grows, brute-force similarity search becomes slow.
+- **Vector indexes** narrow the search space for fast top-K retrieval.
+
+### **Index Types in Oracle 23ai**
+
+#### **1. HNSW (Hierarchical Navigable Small World)**
+- **What it is**: Graph-based index linking vectors across layers.
+- **Why use it**: Fast approximate nearest-neighbor (ANN) search with strong recall and low latency.
+- **Trade-offs**: Requires memory; build time and memory scale with corpus size.
+- **Best for**: Low-latency Q&A, semantic search.
+
+#### **2. IVF (Inverted File Index)**
+- **What it is**: Cluster-based index routing queries to relevant partitions.
+- **Why use it**: Efficient at scale; avoids full scans.
+- **Trade-offs**: Recall depends on partition probing; requires tuning.
+- **Best for**: Large collections with predictable query times.
+
+### **Similarity Metrics**
+- **Dot Product**: Considers both magnitude and angle.
+- **Cosine Similarity**: Considers angle only (magnitude-invariant).
+
+### **RAG Flow Integration**
+1. Embed chunks → store vectors in Oracle 23ai `VECTOR` column.
+2. Index using **HNSW** or **IVF**.
+3. Retrieve top matches using dot or cosine similarity.
+4. Generate answer using LLM with retrieved context.
+
+---
+Here’s a clean and professional formatting of your content on **OCI Generative AI Agents**:
+
+---
+
+# **OCI Generative AI Agents**
+
+## **1. Overview**
+
+**OCI Generative AI Agents** is a fully managed service that combines LLMs with intelligent retrieval to deliver contextual, actionable responses.
+
+- **Purpose**: Automates tasks such as booking, querying, and summarization by integrating:
+  - Reasoning
+  - Acting
+  - Planning
+  - Persona
+
+---
+
+## **2. Core Architecture**
+
+- **Interface Options**: Chatbot, web app, voice, or API
+- **External Knowledge**: Uses **RAG (Retrieval-Augmented Generation)** to ground responses in external data
+- **Feedback Loop**: Responses feed into memory for improved context over time
+
+---
+
+## **3. Key Concepts**
+
+- **Generative AI Model**: LLM trained for Natural Language Understanding (NLU) and Generation (NLG)
+- **Agent**: Autonomous system built on LLM + RAG
+- **Answerability**: Ability to respond relevantly to queries
+- **Groundedness**: Responses are traceable to data sources (via citations)
+
+---
+
+## **4. Data Access Hierarchy**
+
+- **Data Store**: Physical location of data (e.g., Object Storage, Oracle DB)
+- **Data Source**: Connection details for accessing the store
+- **Knowledge Base**: Vector storage system organizing ingested data for retrieval
+
+---
+
+## **5. Supported Data Options**
+
+- **OCI Object Storage**: Managed ingestion; supports PDF & TXT files (≤100MB)
+- **OCI OpenSearch**: Bring-your-own indexed data
+- **Oracle DB 23ai Vector Store**: Custom embeddings with SQL-based retrieval functions
+
+---
+
+## **6. Data Ingestion**
+
+- **Process**: Extract → Transform → Store into the knowledge base
+- **Hybrid Search**: Combines lexical + semantic search for higher accuracy
+- **Ingestion Jobs**: Add, retry, update, or cancel ingestion tasks
+
+---
+
+## **7. Additional Features**
+
+- **Session**: Maintains context across exchanges (timeout range: 1 hour to 7 days)
+- **Endpoint**: External access point for agents
+- **Trace**: Logs full conversation history
+- **Citation**: Displays sources of agent responses
+- **Content Moderation**: Filters harmful content (input, output, or both)
+
+---
+
+## **8. Database Guidelines**
+
+- Create vector tables with fields: `DOCID`, `body`, `vector`
+- Ensure the **same embedding model** is used for both data and query
+- Define retrieval functions that return: `DOCID`, `body`, `score`
+- Supports similarity metrics:
+  - **Cosine similarity**
+  - **Euclidean distance**
+
+---
+
+## **9. Agent Workflow**
+
+1. **Create Knowledge Base**  
+   → Choose data store (Object Storage or Oracle DB)
+
+2. **Ingest Data**  
+   → PDFs, TXTs, or pre-vectorized data
+
+3. **Create Agent**  
+   → Define welcome message, select knowledge base
+
+4. **Create Endpoint**  
+   → Connect to apps; configure session, moderation, trace, citation
+
+5. **Chat & Test**  
+   → Query agent, view responses, citations, and trace logs
+
+---
+
+## **10. Default Limits (Highlights)**
+
+- **1 KB** → 1 data source
+- **Files**: Up to 1,000 per source (100MB each)
+- **Sessions**: Default timeout = 3,600 seconds (extendable)
+
+---
+Here’s a professionally formatted version of your content on **Fine-Tuning GPU Sizes & Calculations (OCI Generative AI)**:
+
+---
+
+# **Fine-Tuning GPU Sizes & Calculations (OCI Generative AI)**
+
+## **1. Why GPU Sizing Matters**
+
+- Fine-tuning large language models (LLMs) requires specialized GPU clusters.
+- Choosing the wrong size can lead to:
+  - **Wasted cost**
+  - **Poor performance**
+- OCI provides **Dedicated AI Clusters** for this purpose.
+
+---
+
+## **2. GPU Cluster Options**
+
+- OCI clusters are provisioned in **units**.
+  - Each unit includes a set of GPUs and networking capacity.
+- **Fine-tuning**:
+  - Requires **multiple units** to handle large parameter updates.
+- **Inference/Hosting**:
+  - Can use fewer units.
+  - Must commit to **744 hours/month** (24×7 availability).
+
+### **Typical Configurations**
+*(Details typically provided in article content)*
+
+---
+
+## **3. Cost & Time Estimation**
+
+### **Key Factors**
+- **Model size (parameters)** → Larger models need more GPU memory.
+- **Dataset size (tokens)** → More tokens = longer training time.
+- **Cluster units** → More units = faster training, but cost scales linearly.
+
+### **Fine-Tuning Cost Formula**
+```
+Cost = Number of Units × Hourly Rate per Unit × Hours Run
+```
+
+#### **Example**
+- 8 Cohere units
+- 12-hour training job
+- Rate = $1/hour/unit
+
+👉 **Total Cost** = 8 × 1 × 12 = **$96**
+
+---
+
+## **4. Hosting (Inference) Calculations**
+
+### **Hosting Cost Formula**
+```
+Cost = Number of Units × Hourly Rate per Unit × 744 hours/month
+```
+
+#### **Example**
+- 2 units
+- Hourly rate = $Y/unit
+
+👉 **Monthly Cost** = 2 × Y × 744 = **1,488 × Y dollars/month**
+
+---
+
+## **5. Fine-Tuning Methods Explained**
+
+OCI Generative AI supports multiple fine-tuning methods depending on the base model:
+
+- **Vanilla Fine-Tuning**
+- **LoRA (Low-Rank Adaptation)**
+- **T-Few (Task-specific Few-shot Fine-Tuning)**
+
+*(Details typically provided in article content)*
+
+---
+
+## **6. Performance Tuning Guidelines**
+
+| Model Size        | Recommended Units |
+|-------------------|-------------------|
+| Small (≤13B)      | 4–8 units         |
+| Medium (30–70B)   | 8–16+ units       |
+| Large (100B+)     | 32+ units (distributed) |
+
+### **Tips**
+- Run **pilot jobs** with sample datasets to estimate time and cost.
+- Use **LoRA** or **T-Few** for **parameter-efficient tuning** → reduces GPU needs.
+- For **global availability**, deploy smaller hosting clusters per region (US, EU, APAC).
+
+---
+
+## **7. Exam Pointers**
+
+- **Fine-tuning**: High GPU demand, short duration.
+- **Hosting**: Fewer GPUs, always-on, billed monthly (744 hrs).
+- **LoRA/T-Few**: Lower GPU usage, cost-effective.
+- **Formula knowledge**:
+  ```
+  Units × Rate × Hours
+  ```
+  May appear in scenario-based questions.
+
+---
+
+# MOCK QUESTIONS
+Here’s a well-formatted version of your **Practice Questions** with **answers and explanations** included for each:
+
+---
+
+## **Practice Questions: OCI Generative AI & LLM Concepts**
+
+---
+
+### **Q1. What does “large” in LLM primarily refer to?  
+a) Vocabulary size  
+b) Training dataset size  
+c) Number of parameters  
+d) Number of GPUs used**
+
+**✅ Answer: c) Number of parameters**  
+**Explanation**: The term "large" in LLM refers to the **number of parameters** in the model. These parameters define the model's capacity to learn and represent complex patterns in data.
+
+---
+
+### **Q2. Which architecture is best suited for semantic search?  
+a) Decoder  
+b) Encoder  
+c) Encoder-Decoder  
+d) Random Forest**
+
+**✅ Answer: b) Encoder**  
+**Explanation**: **Encoder architectures** (like BERT) are ideal for semantic search because they convert text into embeddings that capture meaning, enabling similarity comparisons.
+
+---
+
+### **Q3. Which of the following is an example of a decoder model?  
+a) BERT  
+b) GPT-4  
+c) ResNet  
+d) Word2Vec**
+
+**✅ Answer: b) GPT-4**  
+**Explanation**: **GPT-4** is a **decoder-only** transformer model designed for text generation. BERT is encoder-only, ResNet is for image tasks, and Word2Vec is not a transformer.
+
+---
+
+### **Q4. What is the main purpose of prompting?  
+a) Changing model weights  
+b) Altering model input to influence output  
+c) Reducing model size  
+d) Speeding up training**
+
+**✅ Answer: b) Altering model input to influence output**  
+**Explanation**: Prompting involves crafting inputs to guide the model toward desired outputs without changing its internal parameters.
+
+---
+
+### **Q5. Zero-shot prompting involves:  
+a) Providing no task description  
+b) Providing examples of the task  
+c) Only providing the task description with no examples  
+d) Feeding only numbers**
+
+**✅ Answer: c) Only providing the task description with no examples**  
+**Explanation**: In **zero-shot prompting**, the model is given a task description but **no examples**—it must infer the task from the prompt alone.
+
+---
+
+### **Q6. Which prompting technique encourages step-by-step reasoning?  
+a) Chain-of-Thought prompting  
+b) Zero-shot prompting  
+c) Greedy prompting  
+d) LoRA prompting**
+
+**✅ Answer: a) Chain-of-Thought prompting**  
+**Explanation**: **Chain-of-Thought (CoT)** prompting guides the model to reason step-by-step, improving performance on complex tasks.
+
+---
+
+### **Q7. Which training method adds new parameters without changing original ones?  
+a) Fine-tuning  
+b) LoRA  
+c) Soft Prompting  
+d) Continual Pretraining**
+
+**✅ Answer: b) LoRA**  
+**Explanation**: **LoRA (Low-Rank Adaptation)** introduces new trainable parameters while keeping the original model weights frozen, making it efficient and modular.
+
+---
+
+### **Q8. What does temperature control in decoding?  
+a) The speed of model training  
+b) The size of the vocabulary  
+c) The randomness of token selection  
+d) The number of parameters updated**
+
+**✅ Answer: c) The randomness of token selection**  
+**Explanation**: **Temperature** controls how random the output is—lower values make the model more deterministic, higher values increase diversity.
+
+---
+
+### **Q9. Which decoding method always picks the most likely token?  
+a) Random Sampling  
+b) Beam Search  
+c) Greedy Decoding  
+d) Nucleus Sampling**
+
+**✅ Answer: c) Greedy Decoding**  
+**Explanation**: **Greedy decoding** selects the token with the highest probability at each step, without considering alternative paths.
+
+---
+
+### **Q10. Which of the following is a risk of deploying LLMs?  
+a) Faster processing  
+b) Prompt Injection  
+c) Higher accuracy  
+d) Lower memory usage**
+
+**✅ Answer: b) Prompt Injection**  
+**Explanation**: **Prompt injection** is a security risk where malicious inputs manipulate the model’s behavior, potentially leading to unintended or harmful outputs.
+
+
