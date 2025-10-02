@@ -1,5 +1,6 @@
 # LLM
 
+https://krrai77.medium.com/navigating-the-oci-generative-ai-professional-certification-strategies-and-personal-insights-94446d5e23f3
 
 Let’s unpack **LLMs (Large Language Models)** step by step, in simple terms and then a bit deeper.
 
