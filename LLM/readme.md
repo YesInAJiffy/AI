@@ -3466,5 +3466,70 @@ If the combined input already uses 7,500 tokens, the model can only generate **u
 
 
 
+Great question! Let's break it down clearly.
+
+---
+
+### 🔢 **What is Cumulative Probability?**
+
+In the context of **Top-p sampling** (also called **nucleus sampling**), **cumulative probability** refers to the **running total of probabilities** of the most likely tokens, starting from the top.
+
+---
+
+### 🧠 **Top-p Sampling Explained with an Example**
+
+Imagine a language model is trying to predict the next word, and it gives the following probabilities for the top tokens:
+
+| Token     | Probability |
+|-----------|-------------|
+| "car"     | 0.30        |
+| "truck"   | 0.25        |
+| "bike"    | 0.15        |
+| "train"   | 0.10        |
+| "plane"   | 0.08        |
+| "boat"    | 0.07        |
+| "scooter" | 0.05        |
+
+Now, suppose **Top-p = 0.80**.
+
+We start adding tokens from the top until the **cumulative probability ≥ 0.80**:
+
+- "car" → 0.30  
+- "truck" → 0.30 + 0.25 = 0.55  
+- "bike" → 0.55 + 0.15 = 0.70  
+- "train" → 0.70 + 0.10 = **0.80** ✅
+
+So, the model will **randomly select the next token from this set**:  
+**{ "car", "truck", "bike", "train" }**
+
+Tokens like "plane", "boat", and "scooter" are **excluded** because they fall outside the top-p cumulative threshold.
+
+---
+
+### 🔁 Summary:
+
+- **Top-k**: Fixed number of top tokens (e.g., top 5).
+- **Top-p**: Variable number of tokens whose **combined probability ≥ p** (e.g., 0.9).
+
+
+
+
+### ✅ **A. Preamble**
+
+---
+
+### 🔍 Explanation:
+
+- The **preamble** is a field used to provide **context, instructions, or guidance** to the model about how it should behave or respond during a conversation.
+- In this case, if you want the model to respond **in the tone of a pirate**, the preamble is where you'd specify that instruction (e.g., "Respond like a pirate in all replies").
+
+---
+
+### ❌ Why the other options are incorrect:
+
+- **B. Temperature**: Controls randomness/creativity in responses, not style or tone.
+- **C. Seed**: Used for reproducibility of outputs, not for setting tone or instructions.
+- **D. Truncate**: Refers to how long responses are or how input is shortened, not about style.
+
 
 
