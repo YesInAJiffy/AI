@@ -2813,3 +2813,208 @@ D. Switch to an embedding model.
 
 ---
 
+Absolutely! Here's the full list of questions with all options, correct answers clearly marked, and **explanations** for each:
+
+---
+
+### **01. How is the `totalTrainingSteps` parameter calculated during fine-tuning in OCI Generative AI?**
+
+**Options:**
+a) `totalTrainingSteps = (totalTrainingEpochs * size(trainingDataset)) / trainingBatchSize` ✅  
+b) `totalTrainingSteps = (totalTrainingEpochs * trainingBatchSize) / size(trainingDataset)`  
+c) `totalTrainingSteps = (size(trainingDataset) * trainingBatchSize) / totalTrainingEpochs`  
+d) `totalTrainingSteps = (totalTrainingEpochs + size(trainingDataset)) * trainingBatchSize`
+
+**Explanation:**  
+This formula ensures that the model sees the entire dataset for each epoch, divided into batches. It calculates how many steps are needed to complete all epochs.
+
+---
+
+### **02. In which phase of the RAG pipeline are additional context and user query used by LLMs to respond to the user?**
+
+**Options:**
+a) Evaluation  
+b) Ingestion  
+c) Retrieval  
+d) Generation ✅
+
+**Explanation:**  
+The **Generation** phase is where the LLM uses the retrieved context and the user’s query to generate a response. Retrieval happens before this, and ingestion is the data preparation phase.
+
+---
+
+### **03. What is the primary reason why diffusion models are difficult to apply to text generation tasks?**
+
+**Options:**
+a) Because text is not categorical  
+b) Because text representation is categorical, unlike images ✅  
+c) Because diffusion models can only produce images  
+d) Because text generation does not require complex models
+
+**Explanation:**  
+Diffusion models work well with continuous data like images. Text is **categorical**, making it harder to model with diffusion techniques due to discrete tokenization.
+
+---
+
+### **04. What happens when this line of code is executed?**  
+`embed_text_response = generative_ai_inference_client.embed_text(embed_text_detail)`
+
+**Options:**
+a) It processes and configures the OCI profile settings for the inference session.  
+b) It initializes a pretrained OCI Generative AI model for use in the session.  
+c) It sends a request to the OCI Generative AI service to generate an embedding for the input text. ✅  
+d) It initiates a connection to OCI and authenticates using the user’s credentials.
+
+**Explanation:**  
+This line sends a request to OCI GenAI to **embed the input text**, converting it into a vector representation for semantic search or other downstream tasks.
+
+---
+
+### **05. In an OCI Generative AI chat model, which of these parameter settings is most likely to induce hallucinations and factually incorrect information?**
+
+**Options:**
+a) `temperature = 0.9`, `top_p = 0.8`, and `frequency_penalty = 0.1` ✅  
+b) `temperature = 0.2`, `top_p = 0.6`, and `frequency_penalty = 0.8`  
+c) `temperature = 0.0`, `top_p = 0.7`, and `frequency_penalty = 1.0`  
+d) `temperature = 0.5`, `top_p = 0.9`, and `frequency_penalty = 0.5`
+
+**Explanation:**  
+High **temperature** and **top_p** values increase randomness, which can lead to **hallucinations**—responses that are fluent but factually incorrect.
+
+---
+
+### **06. When activating content moderation in OCI Generative AI Agents, which of these can you specify?**
+
+**Options:**
+a) The maximum file size for input data  
+b) The threshold for language complexity in responses  
+c) The type of vector search used for retrieval  
+d) Whether moderation applies to user prompts, generated responses, or both ✅
+
+**Explanation:**  
+OCI GenAI allows you to configure **content moderation** to apply to **user inputs**, **model outputs**, or **both**, helping enforce safety and compliance.
+
+---
+
+### **07. How can you affect the probability distribution over the vocabulary of a Large Language Model (LLM)?**
+
+**Options:**
+a) By adjusting the token size during the training phase  
+b) By restricting the vocabulary used in the model  
+c) By using techniques like prompting and training ✅  
+d) By modifying the model’s training data
+
+**Explanation:**  
+**Prompting and training** influence how the model selects words by shaping the probability distribution over its vocabulary during inference.
+
+---
+
+### **08. You want to build an LLM application that can connect application components easily and allow for component replacement in a declarative manner. What approach would you take?**
+
+**Options:**
+a) Use LangChain Expression Language (LCEL). ✅  
+b) Use prompts.  
+c) Use agents.  
+d) Use Python classes like LLMChain.
+
+**Explanation:**  
+**LCEL** allows you to declaratively define chains and swap components easily, making it ideal for modular and maintainable LLM applications.
+
+---
+
+### **09. What must be done before you can delete a knowledge base in Generative AI Agents?**
+
+**Options:**
+a) Disconnect the database tool connection.  
+b) Delete the data sources and agents using that knowledge base. ✅  
+c) Reassign the knowledge base to a different agent.  
+d) Archive the knowledge base for future use.
+
+**Explanation:**  
+You must **delete all agents and data sources** that depend on the knowledge base before it can be removed, ensuring no active dependencies exist.
+
+---
+
+### **10. Which phase of the RAG pipeline includes loading, splitting, and embedding of documents?**
+
+**Options:**
+a) Evaluation  
+b) Generation  
+c) Retrieval  
+d) Ingestion ✅
+
+**Explanation:**  
+The **Ingestion** phase prepares the data by **loading**, **chunking**, and **embedding** documents into a vector store for later retrieval.
+
+---
+
+
+When does a chain typically interact with memory in a run within the LangChain framework?
+A. After user input but before chain execution, and again after core logic but before output
+B. Only after the output has been generated
+C. Before user input and after chain execution
+D. Continuously throughout the entire chain execution process
+
+✅ **Correct Answer: A. After user input but before chain execution, and again after core logic but before output**
+
+---
+
+### 🔍 Explanation:
+
+In the **LangChain framework**, **memory** is used to **track and store information across interactions**—like previous user inputs, model outputs, or conversation history. A chain typically interacts with memory at two key points during a run:
+
+1. **After receiving user input but before executing the chain logic**  
+   - This allows the chain to **retrieve relevant context** (e.g., previous messages or variables) and incorporate it into the current run.
+
+2. **After the core logic is executed but before returning the output**  
+   - This is when the chain **updates the memory** with new information (e.g., the latest user query and model response), ensuring continuity in future interactions.
+
+This pattern enables **stateful conversations**, which are essential for chatbots, agents, and multi-turn applications.
+
+---
+
+### ❌ Why the other options are incorrect:
+
+- **B. Only after the output has been generated** – Memory is also accessed before execution.
+- **C. Before user input and after chain execution** – Memory isn't typically accessed before user input.
+- **D. Continuously throughout the entire chain execution process** – Memory access is **event-driven**, not continuous.
+
+Would you like a visual diagram or code example showing how memory is integrated in a LangChain chain?
+
+
+
+How does the utilization of T-Few transformer layers contribute to the efficiency of the fine-tuning process?
+A. By allowing updates across all layers of the model
+B. By excluding transformer layers from the fine-tuning process entirely
+C. By incorporating additional layers to the base model
+D. By restricting updates to only a specific group of transformer layers
+
+
+✅ **Correct Answer: D. By restricting updates to only a specific group of transformer layers**
+
+---
+
+### 🔍 Explanation:
+
+**T-Few (Task-aware Few-shot fine-tuning)** is designed to make fine-tuning **efficient and scalable** by:
+
+- **Restricting updates** to only a **subset of transformer layers** rather than updating the entire model.
+- This selective tuning reduces:
+  - **Computational cost**
+  - **Memory usage**
+  - **Risk of overfitting**, especially in few-shot scenarios
+
+By focusing on **task-relevant layers**, T-Few achieves strong performance with minimal data and resources.
+
+---
+
+### ❌ Why the other options are incorrect:
+
+- **A. Updates across all layers** – This is typical of full fine-tuning, not T-Few.
+- **B. Excludes transformer layers entirely** – Transformer layers are still involved; only some are updated.
+- **C. Adds new layers** – T-Few doesn’t add layers; it fine-tunes selectively within the existing architecture.
+
+Would you like a comparison between T-Few and other efficient fine-tuning methods like LoRA or PEFT?
+
+
+
