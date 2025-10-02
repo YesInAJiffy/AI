@@ -3440,6 +3440,30 @@ OCI bills **Generative AI fine-tuning jobs** primarily based on the **duration**
 
 
 
+ **context length includes both the input and the output tokens**.
+
+### 🔁 Here's how it works:
+- The **total number of tokens** in a single interaction — including:
+  - **System prompt**
+  - **User input**
+  - **Model output**
+- Must **not exceed** the model’s maximum context length.
+
+---
+
+### 📌 Example (with an 8,000-token context limit):
+- System prompt: 500 tokens  
+- User input: 1,000 tokens  
+- Model output: **can be up to 6,500 tokens**
+
+If the combined input already uses 7,500 tokens, the model can only generate **up to 500 tokens** in response.
+
+---
+
+### Why this matters:
+- If your prompt is too long, the model may **truncate earlier parts** or **cut off the response**.
+- For long documents or conversations, you may need to **summarize**, **chunk**, or use **retrieval-augmented generation (RAG)** to stay within limits.
+
 
 
 
